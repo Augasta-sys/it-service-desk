@@ -1,0 +1,2278 @@
+/* =========================================================
+   GLOBAL AUTH PAGE
+========================================================= */
+
+.auth-page {
+  position: relative;
+
+  width: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: clamp(12px, 2vw, 28px);
+
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      rgba(119, 134, 254, 0.82),
+      rgba(254, 232, 224, 0.62)
+    ),
+    url("/images/auth-bg.jpg"),
+    linear-gradient(
+      135deg,
+      #dbeafe 0%,
+      #eff6ff 50%,
+      #bae6fd 100%
+    );
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* =========================================================
+   AUTH CARD
+========================================================= */
+.auth-card {
+  position: relative;
+  z-index: 20;
+
+  width: min(100%, 440px);
+  max-height: calc(100dvh - 24px);
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 24px;
+
+  background: rgba(8, 12, 35, 0.72);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    0 10px 30px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  overflow: visible;
+}
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.login-card {
+  padding: 30px 32px 26px;
+}
+
+
+/* =========================================================
+   SIGNUP CARD
+========================================================= */
+
+.signup-card {
+  width: min(100%, 520px);
+
+  padding: 24px 30px 22px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.auth-content {
+  position: relative;
+  z-index: 10; 
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.auth-header {
+  text-align: center;
+
+  margin-bottom: 24px;
+}
+
+.signup-header {
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.auth-logo {
+  width: 48px;
+  height: 48px;
+
+  margin: 0 auto 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #3b82f6,
+      #06b6d4
+    );
+
+  color: white;
+
+  box-shadow:
+    0 12px 28px rgba(37, 99, 235, 0.25),
+    0 4px 10px rgba(6, 182, 212, 0.12);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.auth-title {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: clamp(22px, 2.2vw, 30px);
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.auth-description {
+  max-width: 360px;
+
+  margin: 7px auto 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+.auth-field {
+  min-width: 0;
+}
+
+.login-card .auth-field {
+  margin-top: 16px;
+}
+
+.signup-card .auth-field {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.auth-label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #334155;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.auth-input {
+  display: block;
+
+  width: 100%;
+  min-width: 0;
+
+  height: 42px;
+
+  padding: 0 12px;
+
+  border: 1px solid #d8e2ef;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  color: #0f172a;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.auth-input::placeholder {
+  color: #94a3b8;
+}
+
+.auth-input:hover {
+  border-color: #b8c8dc;
+}
+
+.auth-input:focus {
+  border-color: #3b82f6;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.1),
+    0 4px 12px rgba(59, 130, 246, 0.05);
+}
+
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+.password-input {
+  padding-right: 42px;
+}
+
+.password-label-row {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 6px;
+}
+
+.password-label-row .auth-label {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   PASSWORD TOGGLE
+========================================================= */
+
+.password-toggle {
+  position: absolute;
+
+  right: 6px;
+  top: 50%;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-50%);
+
+  border: none;
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: #94a3b8;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.password-toggle:hover {
+  background: #f1f5f9;
+
+  color: #475569;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.auth-link {
+  color: #2563eb;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.auth-link:hover {
+  color: #1d4ed8;
+
+  text-decoration: underline;
+}
+
+.auth-forgot {
+  flex-shrink: 0;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.auth-error {
+  margin-top: 12px;
+
+  padding: 9px 11px;
+
+  border: 1px solid #fee2e2;
+
+  border-radius: 9px;
+
+  background: #fef2f2;
+}
+
+.auth-error p {
+  margin: 0;
+
+  color: #dc2626;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.auth-success {
+  margin-top: 12px;
+
+  padding: 9px 11px;
+
+  border: 1px solid #d1fae5;
+
+  border-radius: 9px;
+
+  background: #ecfdf5;
+}
+
+.auth-success p {
+  margin: 0;
+
+  color: #059669;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.auth-button {
+  width: 100%;
+
+  height: 42px;
+
+  margin-top: 18px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #3b82f6 55%,
+      #0891b2
+    );
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 25px rgba(37, 99, 235, 0.2),
+    0 4px 10px rgba(8, 145, 178, 0.08);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.auth-button:hover {
+  transform: translateY(-1px);
+
+  filter: brightness(1.03);
+
+  box-shadow:
+    0 16px 32px rgba(37, 99, 235, 0.24),
+    0 6px 14px rgba(8, 145, 178, 0.1);
+}
+
+.auth-button:active {
+  transform: translateY(0);
+}
+
+.auth-button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.6;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.auth-footer-text {
+  margin: 15px 0 0;
+
+  text-align: center;
+
+  color: #64748b;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   SIGNUP GRID
+========================================================= */
+
+.signup-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  column-gap: 12px;
+
+  row-gap: 12px;
+}
+
+.signup-full {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   CHARACTER PEEK WINDOW
+   Characters stay BEHIND the card.
+   Their heads extend above the card and remain visible.
+========================================================= */
+
+.character-peek-zone,
+.signup-character-zone {
+  position: absolute;
+
+  top: -92px;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 125px;
+
+  overflow: visible;
+
+  /*
+    IMPORTANT:
+    Characters must be BEHIND the card.
+  */
+  z-index: 1 !important;
+
+  pointer-events: none;
+}
+
+.signup-character-zone {
+  position: absolute;
+  top: -92px;
+  left: 0;
+  right: 0;
+  height: 125px;
+  overflow: visible;
+  z-index: 1; /* behind card */
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CHARACTERS
+========================================================= */
+
+.login-characters {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+/* =========================================================
+   CHARACTER BASE
+========================================================= */
+
+.login-character {
+  position: absolute;
+
+  bottom: -35px;
+
+  width: 78px;
+  height: 108px;
+
+  transform-origin: bottom center;
+
+  transition:
+    transform 0.45s
+    cubic-bezier(0.22, 1, 0.36, 1);
+
+  animation:
+    character-peek 0.9s ease-out both;
+}
+
+
+/* =========================================================
+   CHARACTER POSITIONS
+========================================================= */
+
+.character-one {
+  left: 42px;
+
+  transform:
+    translateY(0)
+    rotate(-7deg);
+
+  animation-delay: 0.05s;
+}
+
+.character-two {
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    rotate(2deg);
+
+  animation-delay: 0.15s;
+}
+
+.character-three {
+  right: 42px;
+
+  transform:
+    translateY(0)
+    rotate(7deg);
+
+  animation-delay: 0.25s;
+}
+
+
+/* =========================================================
+   PEEK ANIMATION
+========================================================= */
+
+@keyframes character-peek {
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(30px)
+      scale(0.88)
+      rotate(0deg);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   CHARACTER BODY
+========================================================= */
+
+.character-body {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 66px;
+  height: 58px;
+
+  transform: translateX(-50%);
+
+  border-radius:
+    28px
+    28px
+    10px
+    10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  box-shadow:
+    0 8px 18px rgba(15, 23, 42, 0.12);
+}
+
+.character-two .character-body {
+  background:
+    linear-gradient(
+      145deg,
+      #7c3aed,
+      #6d28d9
+    );
+}
+
+.character-three .character-body {
+  background:
+    linear-gradient(
+      145deg,
+      #0891b2,
+      #0e7490
+    );
+}
+
+.character-shirt {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 28px;
+  height: 19px;
+
+  transform: translateX(-50%);
+
+  border-radius:
+    18px
+    18px
+    0
+    0;
+
+  background: rgba(255, 255, 255, 0.16);
+}
+
+
+/* =========================================================
+   CHARACTER HEAD
+========================================================= */
+
+.character-head {
+  position: absolute;
+
+  left: 50%;
+  top: 2px;
+
+  width: 62px;
+  height: 58px;
+
+  transform:
+    translateX(-50%)
+    rotate(0deg);
+
+  border-radius:
+    47%
+    47%
+    45%
+    45%;
+
+  background: #ffd3b6;
+
+  box-shadow:
+    0 7px 18px rgba(15, 23, 42, 0.12);
+
+  transition:
+    transform 0.45s
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.character-two .character-head {
+  background: #f8c9a9;
+}
+
+.character-three .character-head {
+  background: #ffd9bb;
+}
+
+
+/* =========================================================
+   HAIR
+========================================================= */
+
+.character-hair {
+  position: absolute;
+
+  top: -7px;
+  left: -2px;
+
+  width: 66px;
+  height: 30px;
+
+  border-radius:
+    48%
+    48%
+    35%
+    35%;
+
+  background: #1e293b;
+
+  transform: rotate(-2deg);
+}
+
+.character-two .character-hair {
+  background: #4c1d95;
+}
+
+.character-three .character-hair {
+  background: #164e63;
+}
+
+
+/* =========================================================
+   EYES
+========================================================= */
+
+.character-eye {
+  position: absolute;
+
+  top: 27px;
+
+  width: 16px;
+  height: 11px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.character-eye-left {
+  left: 12px;
+}
+
+.character-eye-right {
+  right: 12px;
+}
+
+
+/* =========================================================
+   PUPILS
+========================================================= */
+
+.character-pupil {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #172033;
+
+  transition:
+    transform 0.1s ease-out;
+}
+
+
+/* =========================================================
+   NOSE
+========================================================= */
+
+.character-nose {
+  position: absolute;
+
+  left: 50%;
+  top: 37px;
+
+  width: 4px;
+  height: 6px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: rgba(180, 100, 70, 0.3);
+}
+
+
+/* =========================================================
+   MOUTH
+========================================================= */
+
+.character-mouth {
+  position: absolute;
+
+  left: 50%;
+  top: 46px;
+
+  width: 11px;
+  height: 5px;
+
+  transform: translateX(-50%);
+
+  border-bottom:
+    2px solid
+    rgba(120, 55, 55, 0.65);
+
+  border-radius:
+    0
+    0
+    50%
+    50%;
+}
+
+
+/* =========================================================
+   EMAIL / NORMAL FIELD ACTIVE
+========================================================= */
+
+.login-characters.email-active
+  .character-one,
+.login-characters.signup-field-active
+  .character-one {
+  transform:
+    translateY(5px)
+    rotate(-3deg);
+}
+
+.login-characters.email-active
+  .character-two,
+.login-characters.signup-field-active
+  .character-two {
+  transform:
+    translateX(-50%)
+    translateY(6px)
+    rotate(0deg);
+}
+
+.login-characters.email-active
+  .character-three,
+.login-characters.signup-field-active
+  .character-three {
+  transform:
+    translateY(5px)
+    rotate(3deg);
+}
+
+
+/* =========================================================
+   PASSWORD PROTECTION
+========================================================= */
+
+.login-characters.password-protection
+  .character-one {
+  transform:
+    translateX(-10px)
+    translateY(3px)
+    rotate(-18deg);
+}
+
+.login-characters.password-protection
+  .character-two {
+  transform:
+    translateX(-50%)
+    translateY(4px)
+    rotate(14deg);
+}
+
+.login-characters.password-protection
+  .character-three {
+  transform:
+    translateX(10px)
+    translateY(3px)
+    rotate(18deg);
+}
+
+
+/* HEAD TURN */
+
+.login-characters.password-protection
+  .character-one
+  .character-head {
+  transform:
+    translateX(-50%)
+    rotate(-16deg);
+}
+
+.login-characters.password-protection
+  .character-two
+  .character-head {
+  transform:
+    translateX(-50%)
+    rotate(14deg);
+}
+
+.login-characters.password-protection
+  .character-three
+  .character-head {
+  transform:
+    translateX(-50%)
+    rotate(16deg);
+}
+
+
+/* =========================================================
+   MEDIUM DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+  .login-card {
+    width: 440px;
+  }
+
+  .signup-card {
+    width: 520px;
+  }
+
+  .character-one {
+    left: 34px;
+  }
+
+  .character-three {
+    right: 34px;
+  }
+}
+
+
+/* =========================================================
+   SMALL LAPTOP / TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .auth-page {
+    padding: 14px;
+  }
+
+  .signup-card {
+    width: min(100%, 500px);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .auth-page {
+    padding: 10px;
+  }
+
+  .auth-card {
+    max-height: calc(100dvh - 20px);
+
+    border-radius: 20px;
+  }
+
+  .login-card {
+    padding: 24px 20px 20px;
+  }
+
+  .signup-card {
+    padding: 20px 18px 18px;
+  }
+
+  .auth-logo {
+    width: 44px;
+    height: 44px;
+
+    margin-bottom: 10px;
+  }
+
+  .auth-header {
+    margin-bottom: 18px;
+  }
+
+  .signup-header {
+    margin-bottom: 14px;
+  }
+
+  .auth-description {
+    font-size: 12px;
+  }
+
+  .auth-input {
+    height: 40px;
+
+    font-size: 12px;
+  }
+
+  .login-card .auth-field {
+    margin-top: 14px;
+  }
+
+  .auth-button {
+    height: 40px;
+
+    margin-top: 15px;
+  }
+
+  .character-peek-zone {
+    top: -55px;
+    height: 60px;
+  }
+
+  .signup-character-zone {
+    top: -53px;
+    height: 58px;
+  }
+
+  .login-character {
+    width: 65px;
+    height: 94px;
+
+    transform: scale(0.88);
+  }
+
+  .character-one {
+    left: -5px;
+  }
+
+  .character-two {
+    left: 50%;
+  }
+
+  .character-three {
+    right: -5px;
+  }
+
+  /*
+   * Move the outer characters farther outward
+   * so the form gets maximum width.
+   */
+
+  .character-one {
+    transform:
+      translateX(-8px)
+      scale(0.82)
+      rotate(-7deg);
+  }
+
+  .character-three {
+    transform:
+      translateX(8px)
+      scale(0.82)
+      rotate(7deg);
+  }
+
+  /*
+   * Hide the center character on small screens
+   * if the card is too narrow.
+   */
+
+  .character-two {
+    display: none;
+  }
+
+  .character-head {
+    width: 54px;
+    height: 51px;
+  }
+
+  .character-body {
+    width: 58px;
+    height: 51px;
+  }
+
+  .character-hair {
+    width: 58px;
+    height: 27px;
+  }
+
+  .character-eye {
+    top: 24px;
+
+    width: 14px;
+    height: 10px;
+  }
+
+  .character-eye-left {
+    left: 10px;
+  }
+
+  .character-eye-right {
+    right: 10px;
+  }
+
+  .character-pupil {
+    width: 6px;
+    height: 6px;
+  }
+
+  .signup-grid {
+    grid-template-columns: 1fr;
+
+    row-gap: 10px;
+  }
+
+  .signup-full {
+    grid-column: auto;
+  }
+
+  .signup-card .auth-label {
+    margin-bottom: 4px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+  .auth-page {
+    padding: 6px;
+  }
+
+  .auth-card {
+    max-height: calc(100dvh - 12px);
+
+    border-radius: 18px;
+  }
+
+  .login-card {
+    padding: 19px 15px 16px;
+  }
+
+  .signup-card {
+    padding: 16px 14px 14px;
+  }
+
+  .auth-logo {
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 8px;
+  }
+
+  .auth-title {
+    font-size: 21px;
+  }
+
+  .auth-description {
+    margin-top: 5px;
+
+    font-size: 11px;
+  }
+
+  .auth-header {
+    margin-bottom: 14px;
+  }
+
+  .signup-header {
+    margin-bottom: 11px;
+  }
+
+  .login-card .auth-field {
+    margin-top: 11px;
+  }
+
+  .auth-label {
+    font-size: 11px;
+  }
+
+  .auth-input {
+    height: 37px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    font-size: 11px;
+  }
+
+  .password-input {
+    padding-right: 38px;
+  }
+
+  .password-toggle {
+    width: 29px;
+    height: 29px;
+  }
+
+  .auth-button {
+    height: 38px;
+
+    margin-top: 12px;
+
+    font-size: 12px;
+  }
+
+  .auth-footer-text {
+    margin-top: 11px;
+
+    font-size: 11px;
+  }
+
+  .auth-forgot {
+    font-size: 10px;
+  }
+
+  .signup-grid {
+    row-gap: 8px;
+  }
+
+  .signup-card .auth-input {
+    height: 36px;
+  }
+
+  .character-one {
+    left: -18px;
+  }
+
+  .character-three {
+    right: -18px;
+  }
+}
+
+
+/* =========================================================
+   SHORT HEIGHT SCREENS
+   IMPORTANT FOR LAPTOPS / SMALL PHONES
+========================================================= */
+
+@media (max-height: 720px) {
+  .auth-page {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .auth-card {
+    max-height: calc(100dvh - 12px);
+  }
+
+  .login-card {
+    padding-top: 18px;
+    padding-bottom: 16px;
+  }
+
+  .signup-card {
+    padding-top: 15px;
+    padding-bottom: 13px;
+  }
+
+  .auth-logo {
+    width: 38px;
+    height: 38px;
+
+    margin-bottom: 7px;
+  }
+
+  .auth-header {
+    margin-bottom: 12px;
+  }
+
+  .signup-header {
+    margin-bottom: 9px;
+  }
+
+  .auth-description {
+    margin-top: 4px;
+  }
+
+  .login-card .auth-field {
+    margin-top: 10px;
+  }
+
+  .signup-grid {
+    row-gap: 7px;
+  }
+
+  .auth-input {
+    height: 36px;
+  }
+
+  .auth-button {
+    height: 37px;
+
+    margin-top: 11px;
+  }
+
+  .auth-footer-text {
+    margin-top: 9px;
+  }
+
+  .character-peek-zone {
+    top: -48px;
+    height: 53px;
+  }
+
+  .signup-character-zone {
+    top: -46px;
+    height: 50px;
+  }
+}
+
+
+/* =========================================================
+   VERY SHORT SCREEN
+========================================================= */
+
+@media (max-height: 600px) {
+  .auth-page {
+    align-items: center;
+
+    padding: 4px;
+  }
+
+  .auth-card {
+    max-height: calc(100dvh - 8px);
+  }
+
+  .login-card {
+    padding: 12px 18px;
+  }
+
+  .signup-card {
+    padding: 10px 16px;
+  }
+
+  .auth-logo {
+    width: 32px;
+    height: 32px;
+
+    margin-bottom: 5px;
+  }
+
+  .auth-logo svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .auth-title {
+    font-size: 19px;
+  }
+
+  .auth-description {
+    font-size: 10px;
+  }
+
+  .auth-header {
+    margin-bottom: 8px;
+  }
+
+  .signup-header {
+    margin-bottom: 7px;
+  }
+
+  .login-card .auth-field {
+    margin-top: 7px;
+  }
+
+  .auth-label {
+    margin-bottom: 3px;
+
+    font-size: 10px;
+  }
+
+  .auth-input {
+    height: 32px;
+
+    font-size: 10px;
+  }
+
+  .auth-button {
+    height: 32px;
+
+    margin-top: 8px;
+
+    font-size: 10px;
+  }
+
+  .auth-footer-text {
+    margin-top: 6px;
+
+    font-size: 10px;
+  }
+
+  .signup-grid {
+    row-gap: 5px;
+  }
+
+  .signup-card .auth-input {
+    height: 31px;
+  }
+
+  /*
+   * Characters move completely to the sides.
+   */
+
+  .character-two {
+    display: none;
+  }
+
+  .character-one {
+    left: -27px;
+  }
+
+  .character-three {
+    right: -27px;
+  }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+  .auth-button:hover {
+    transform: none;
+
+    filter: none;
+  }
+
+  .password-toggle:hover {
+    background: transparent;
+  }
+
+  .auth-input:hover {
+    border-color: #d8e2ef;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .login-character,
+  .character-head,
+  .character-pupil,
+  .auth-button,
+  .auth-input,
+  .password-toggle {
+    animation: none;
+
+    transition: none;
+  }
+}
+
+/* =========================================================
+   CHARACTER BODY BEHIND CARD
+   ========================================================= */
+
+/* Keep characters below the card surface */
+.login-characters {
+  position: absolute;
+  z-index: 1 !important;
+}
+
+/* Card itself */
+.auth-card {
+  position: relative !important;
+  z-index: 20 !important;
+}
+
+/*
+   This creates a surface over the character bodies.
+   The heads that extend outside the card remain visible.
+*/
+.auth-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+/* Keep all login/signup content above the surface */
+.auth-content {
+  position: relative;
+  z-index: 10 !important;
+}
+
+/* =========================================================
+   RESPONSIVE CHARACTER VISIBILITY
+   ========================================================= */
+
+/* TABLET + LAPTOP + DESKTOP
+   Show all 3 characters
+   --------------------------------------------------------- */
+
+@media (min-width: 601px) {
+  .character-one,
+  .character-two,
+  .character-three {
+    display: block !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   Keep only left + right characters
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .character-one,
+  .character-three {
+    display: block !important;
+  }
+
+  .character-two {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   LAPTOP — 3 CHARACTERS
+   901px → 1199px
+   ========================================================= */
+
+@media (min-width: 901px) and (max-width: 1199px) {
+
+  .character-one {
+    left: 22px;
+  }
+
+  .character-two {
+    left: 50%;
+  }
+
+  .character-three {
+    right: 22px;
+  }
+
+  .login-character {
+    width: 74px;
+    height: 104px;
+  }
+}
+
+/* =========================================================
+   DESKTOP — 3 CHARACTERS
+   1200px → 1599px
+   ========================================================= */
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+
+  .character-one {
+    left: 34px;
+  }
+
+  .character-two {
+    left: 50%;
+  }
+
+  .character-three {
+    right: 34px;
+  }
+
+  .login-character {
+    width: 78px;
+    height: 108px;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP
+   1600px → 2000px+
+   ========================================================= */
+
+@media (min-width: 1600px) {
+
+  .character-one {
+    left: 55px;
+  }
+
+  .character-two {
+    left: 50%;
+  }
+
+  .character-three {
+    right: 55px;
+  }
+
+  .login-character {
+    width: 82px;
+    height: 112px;
+  }
+}
+
+/* =========================================================
+   RESET PASSWORD PAGE
+   Responsive: 320px → 2000px
+========================================================= */
+
+.reset-password-page {
+  width: 100%;
+  min-height: 100dvh;
+  height: 100dvh;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reset-password-card {
+  width: min(100%, 480px);
+  max-height: calc(100dvh - 32px);
+  overflow: hidden;
+}
+
+.reset-password-content {
+  width: 100%;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 34px 38px 30px;
+  scrollbar-width: none;
+}
+
+.reset-password-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Header */
+
+.reset-password-logo {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #06b6d4
+  );
+
+  color: white;
+
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.reset-password-logo:hover {
+  transform: translateY(-3px) scale(1.04);
+
+  box-shadow:
+    0 14px 30px rgba(37, 99, 235, 0.35);
+}
+
+.reset-password-card .auth-title {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.reset-password-card .auth-description {
+  text-align: center;
+  max-width: 390px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Email */
+
+.reset-email {
+  width: 100%;
+  max-width: 390px;
+  margin: 16px auto 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 14px;
+
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  border-radius: 10px;
+
+  background: rgba(59, 130, 246, 0.07);
+
+  color: #475569;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.reset-email:hover {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
+}
+
+.reset-email svg {
+  flex-shrink: 0;
+  color: #2563eb;
+}
+
+.reset-email span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Form */
+
+.reset-password-form {
+  width: 100%;
+  margin-top: 26px;
+}
+
+.reset-password-form .auth-field + .auth-field {
+  margin-top: 18px;
+}
+
+/* Password input */
+
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-input {
+  padding-right: 50px !important;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 9px;
+
+  background: transparent;
+  color: #64748b;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.password-toggle:hover {
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.1);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.password-toggle:active {
+  transform: translateY(-50%) scale(0.94);
+}
+
+.password-toggle:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Password hint */
+
+.password-hint {
+  margin: 9px 2px 0;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #64748b;
+}
+
+/* Messages */
+
+.reset-message {
+  margin-top: 16px;
+
+  border-radius: 11px;
+
+  padding: 11px 13px;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  animation: resetMessageIn 0.25s ease;
+}
+
+@keyframes resetMessageIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-success {
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.08);
+  color: #047857;
+}
+
+/* Button */
+
+.reset-password-button {
+  margin-top: 22px;
+
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.reset-password-button:not(:disabled):hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(15, 23, 42, 0.2);
+}
+
+.reset-password-button:not(:disabled):active {
+  transform: translateY(0) scale(0.99);
+}
+
+.reset-password-button:disabled {
+  cursor: not-allowed;
+}
+
+/* Loading spinner */
+
+.button-spinner {
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: white;
+
+  border-radius: 50%;
+
+  animation: resetSpinner 0.7s linear infinite;
+}
+
+@keyframes resetSpinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Footer */
+
+.reset-footer {
+  margin-top: 22px;
+  text-align: center;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .reset-password-page {
+    padding: 18px;
+  }
+
+  .reset-password-card {
+    width: min(100%, 470px);
+  }
+
+  .reset-password-content {
+    padding: 32px 34px 28px;
+  }
+}
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .reset-password-page {
+    padding: 20px;
+  }
+
+  .reset-password-card {
+    width: 470px;
+  }
+
+  .reset-password-content {
+    padding: 34px 38px 30px;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1441px) {
+  .reset-password-card {
+    width: 500px;
+  }
+
+  .reset-password-content {
+    padding: 40px 44px 34px;
+  }
+
+  .reset-password-logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .reset-password-form {
+    margin-top: 30px;
+  }
+
+  .reset-password-form .auth-field + .auth-field {
+    margin-top: 20px;
+  }
+
+  .reset-password-button {
+    min-height: 52px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .reset-password-page {
+    padding: 12px;
+  }
+
+  .reset-password-card {
+    width: 100%;
+    max-width: 480px;
+
+    max-height: calc(100dvh - 24px);
+
+    border-radius: 20px;
+  }
+
+  .reset-password-content {
+    max-height: calc(100dvh - 24px);
+    padding: 26px 20px 22px;
+  }
+
+  .reset-password-logo {
+    width: 46px;
+    height: 46px;
+
+    margin-bottom: 13px;
+
+    border-radius: 14px;
+  }
+
+  .reset-password-card .auth-title {
+    font-size: 23px;
+    line-height: 1.2;
+  }
+
+  .reset-password-card .auth-description {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .reset-email {
+    margin-top: 13px;
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .reset-password-form {
+    margin-top: 22px;
+  }
+
+  .reset-password-form .auth-field + .auth-field {
+    margin-top: 15px;
+  }
+
+  .password-hint {
+    font-size: 11px;
+    margin-top: 7px;
+  }
+
+  .reset-message {
+    margin-top: 13px;
+    padding: 10px 11px;
+    font-size: 12px;
+  }
+
+  .reset-password-button {
+    margin-top: 18px;
+    min-height: 46px;
+    font-size: 13px;
+  }
+
+  .reset-footer {
+    margin-top: 18px;
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE — 320px to 380px
+========================================================= */
+
+@media (max-width: 380px) {
+  .reset-password-page {
+    padding: 8px;
+  }
+
+  .reset-password-card {
+    border-radius: 18px;
+    max-height: calc(100dvh - 16px);
+  }
+
+  .reset-password-content {
+    max-height: calc(100dvh - 16px);
+    padding: 20px 15px 18px;
+  }
+
+  .reset-password-logo {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+  }
+
+  .reset-password-logo svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .reset-password-card .auth-title {
+    font-size: 21px;
+  }
+
+  .reset-password-card .auth-description {
+    font-size: 12px;
+  }
+
+  .reset-email {
+    margin-top: 10px;
+    padding: 8px 9px;
+    font-size: 11px;
+  }
+
+  .reset-password-form {
+    margin-top: 18px;
+  }
+
+  .reset-password-form .auth-field + .auth-field {
+    margin-top: 13px;
+  }
+
+  .reset-password-button {
+    min-height: 44px;
+    margin-top: 16px;
+  }
+
+  .reset-footer {
+    margin-top: 15px;
+  }
+}
+
+/* =========================================================
+   SHORT LAPTOP / SHORT SCREEN
+========================================================= */
+
+@media (min-width: 601px) and (max-height: 700px) {
+  .reset-password-content {
+    padding-top: 22px;
+    padding-bottom: 20px;
+  }
+
+  .reset-password-logo {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 10px;
+  }
+
+  .reset-password-form {
+    margin-top: 18px;
+  }
+
+  .reset-password-form .auth-field + .auth-field {
+    margin-top: 13px;
+  }
+
+  .reset-password-button {
+    margin-top: 16px;
+    min-height: 44px;
+  }
+
+  .reset-footer {
+    margin-top: 14px;
+  }
+}
+
+/* =========================================================
+   VERY SHORT SCREEN
+========================================================= */
+
+@media (max-height: 560px) {
+  .reset-password-content {
+    padding-top: 16px;
+    padding-bottom: 14px;
+  }
+
+  .reset-password-logo {
+    display: none;
+  }
+
+  .reset-password-form {
+    margin-top: 14px;
+  }
+
+  .reset-email {
+    margin-top: 8px;
+  }
+
+  .reset-password-button {
+    margin-top: 13px;
+  }
+
+  .reset-footer {
+    margin-top: 12px;
+  }
+}
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) {
+  .reset-password-logo:hover {
+    transform: none;
+  }
+
+  .reset-email:hover {
+    transform: none;
+  }
+
+  .password-toggle:hover {
+    transform: translateY(-50%);
+  }
+
+  .reset-password-button:not(:disabled):hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .reset-password-logo,
+  .reset-email,
+  .password-toggle,
+  .reset-password-button {
+    transition: none;
+  }
+
+  .reset-message,
+  .button-spinner {
+    animation: none;
+  }
+}

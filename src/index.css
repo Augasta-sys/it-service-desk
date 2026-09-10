@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hide scrollbar while keeping scroll functionality */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.category-form-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.category-form-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.category-modal {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.category-modal::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* =========================================
+   VIEW OTHER PROFILE POPUP
+========================================= */
+
+.profile-view-popup {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.profile-view-popup::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* =========================================================
+   PROFILE VIEW MODAL
+========================================================= */
+
+.profile-view-modal-body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.profile-view-modal-body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Keep the modal above the sidebar and other layout elements */
+.profile-view-modal {
+  isolation: isolate;
+}

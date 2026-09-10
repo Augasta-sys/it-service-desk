@@ -1,0 +1,413 @@
+{
+  "users": [
+    {
+      "id": "USR001",
+      "fullName": "Arun Kumar",
+      "email": "admin@servicedesk.com",
+      "password": "Admin@123",
+      "phone": "9876543210",
+      "department": "IT Admin",
+      "role": "admin",
+      "status": "active",
+      "createdDate": "2026-08-01"
+    },
+    {
+      "id": "USR002",
+      "fullName": "Priya Sharma",
+      "email": "agent@servicedesk.com",
+      "password": "Agent@123",
+      "phone": "9876543211",
+      "department": "IT Support",
+      "role": "support_agent",
+      "status": "active",
+      "createdDate": "2026-08-02"
+    },
+    {
+      "id": "USR003",
+      "fullName": "Rahul Menon",
+      "email": "employee@servicedesk.com",
+      "password": "Employee@123",
+      "phone": "9876543212",
+      "department": "Finance",
+      "role": "employee",
+      "status": "active",
+      "createdDate": "2026-08-03"
+    },
+    {
+      "id": "USR004",
+      "fullName": "Sneha Iyer",
+      "email": "sneha@servicedesk.com",
+      "password": "Employee@123",
+      "phone": "9876543213",
+      "department": "Human Resources",
+      "role": "employee",
+      "status": "active",
+      "createdDate": "2026-08-04"
+    },
+    {
+      "id": "yTkkP_jxJ0s",
+      "fullName": "Jasmine",
+      "email": "jasmine@servicedesk.com",
+      "password": "Employee@123",
+      "phone": "9876543210",
+      "department": "Designer",
+      "role": "employee",
+      "status": "active",
+      "createdDate": "2026-09-09"
+    },
+    {
+      "id": "6gnjfawHfIo",
+      "fullName": "Swarna Augasta",
+      "email": "saugasta97@gmail.com",
+      "password": "Agent@123",
+      "phone": "9876543210",
+      "department": "Agent",
+      "role": "employee",
+      "status": "active",
+      "createdDate": "2026-09-09"
+    },
+    {
+      "id": "1o1kNulbfnY",
+      "fullName": "Leon Melwyn",
+      "email": "melwyn@servicedesk.com",
+      "password": "Admin@123",
+      "phone": "9874563210",
+      "department": "IT Admin",
+      "role": "employee",
+      "status": "active",
+      "createdDate": "2026-09-09"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "TKT001",
+      "subject": "Laptop not connecting to Wi-Fi",
+      "description": "My office laptop is unable to connect to the company Wi-Fi network.",
+      "createdBy": "USR003",
+      "assignedAgent": "USR002",
+      "assignmentDate": "2026-09-01",
+      "category": "CAT003",
+      "priority": "medium",
+      "status": "assigned",
+      "createdDate": "2026-09-01",
+      "updatedDate": "2026-09-08",
+      "dueDate": "2026-09-03",
+      "preferredContactMethod": "chat",
+      "resolution": "",
+      "resolutionNotes": "",
+      "resolutionDate": null
+    },
+    {
+      "id": "TKT002",
+      "subject": "Unable to access payroll application",
+      "description": "I am getting an access denied message when trying to open the payroll application.",
+      "createdBy": "USR004",
+      "assignedAgent": "USR002",
+      "assignmentDate": "2026-09-10",
+      "category": "CAT006",
+      "priority": "critical",
+      "status": "in_progress",
+      "createdDate": "2026-09-02",
+      "updatedDate": "2026-09-03",
+      "dueDate": "2026-09-04",
+      "preferredContactMethod": "email",
+      "resolution": "",
+      "resolutionNotes": "",
+      "resolutionDate": null
+    },
+    {
+      "id": "TKT003",
+      "subject": "Printer not working",
+      "description": "The printer on the second floor is showing an error and is not printing documents.",
+      "createdBy": "USR003",
+      "assignedAgent": null,
+      "assignmentDate": "2026-08-08",
+      "category": "CAT001",
+      "priority": "high",
+      "status": "closed",
+      "createdDate": "2026-09-04",
+      "updatedDate": "2026-09-07",
+      "dueDate": "2026-09-07",
+      "preferredContactMethod": "phone",
+      "resolution": "",
+      "resolutionNotes": "",
+      "resolutionDate": null
+    },
+    {
+      "id": "TKT004",
+      "subject": "Email synchronization issue",
+      "description": "My email is not synchronizing correctly with the desktop email application.",
+      "createdBy": "USR004",
+      "assignedAgent": "USR002",
+      "assignmentDate": "2026-07-08",
+      "category": "CAT004",
+      "priority": "low",
+      "status": "resolved",
+      "createdDate": "2026-08-28",
+      "updatedDate": "2026-08-30",
+      "dueDate": "2026-09-01",
+      "preferredContactMethod": "email",
+      "resolution": "Email account synchronization was repaired.",
+      "resolutionNotes": "The email profile was recreated and synchronization was tested successfully.",
+      "resolutionDate": "2026-08-30"
+    },
+    {
+      "id": "TKT005",
+      "subject": "VPN connection failure",
+      "description": "I cannot connect to the company VPN when working remotely.",
+      "createdBy": "USR003",
+      "assignedAgent": "USR002",
+      "assignmentDate": "2026-07-05",
+      "category": "CAT003",
+      "priority": "high",
+      "status": "reopened",
+      "createdDate": "2026-09-05",
+      "updatedDate": "2026-09-08",
+      "dueDate": "2026-09-08",
+      "preferredContactMethod": "chat",
+      "resolution": "VPN configuration was corrected and the connection was restored.",
+      "resolutionNotes": "VPN credentials and network configuration were verified successfully.",
+      "resolutionDate": "2026-09-08"
+    },
+    {
+      "id": "_hqcY3SAFsI",
+      "subject": "Wifi is not connected",
+      "description": "Wifi is not connected with the laptop alone.",
+      "createdBy": "USR003",
+      "assignedAgent": null,
+      "assignmentDate": null,
+      "category": "CAT003",
+      "priority": "high",
+      "status": "resolved",
+      "createdDate": "2026-09-08",
+      "updatedDate": "2026-09-08",
+      "dueDate": "2026-09-11",
+      "preferredContactMethod": "email",
+      "resolution": "The issue is solved by checking the network.",
+      "resolutionNotes": "Solved the issue efficiently.",
+      "resolutionDate": "2026-09-08"
+    }
+  ],
+  "comments": [
+    {
+      "id": "QeVTKfBp0rk",
+      "ticketId": "TKT005",
+      "userId": "USR002",
+      "comment": "Hi",
+      "createdDate": "2026-09-08",
+      "createdTime": "10:23 AM"
+    },
+    {
+      "id": "J9DAhFBxVfg",
+      "ticketId": "_hqcY3SAFsI",
+      "userId": "USR001",
+      "comment": "The issue is solved.",
+      "createdDate": "2026-09-08",
+      "createdTime": "06:49 PM"
+    },
+    {
+      "id": "sUCxFe2pAmQ",
+      "ticketId": "_hqcY3SAFsI",
+      "userId": "USR001",
+      "comment": "What is the real problem?",
+      "createdDate": "2026-09-08",
+      "createdTime": "06:51 PM"
+    },
+    {
+      "id": "YibjXOdfeHg",
+      "ticketId": "TKT001",
+      "userId": "USR002",
+      "comment": "Hi Arun, I'm working on this process.",
+      "createdDate": "2026-09-09",
+      "createdTime": "11:05 AM"
+    },
+    {
+      "id": "lV7Y3f-UQkA",
+      "ticketId": "TKT001",
+      "userId": "USR001",
+      "comment": "ok",
+      "createdDate": "2026-09-09",
+      "createdTime": "11:06 AM"
+    },
+    {
+      "id": "rUqBRvuDMBY",
+      "ticketId": "TKT005",
+      "userId": "USR001",
+      "comment": "Are you there?",
+      "createdDate": "2026-09-10",
+      "createdTime": "11:19 AM"
+    },
+    {
+      "id": "KkxY6nl9hs0",
+      "ticketId": "TKT003",
+      "userId": "USR001",
+      "comment": "What is the progress?",
+      "createdDate": "2026-09-10",
+      "createdTime": "11:21 AM"
+    }
+  ],
+  "categories": [
+    {
+      "id": "CAT001",
+      "name": "Hardware",
+      "description": "Computer, laptop, printer and other hardware issues.",
+      "status": "active"
+    },
+    {
+      "id": "CAT002",
+      "name": "Software",
+      "description": "Application installation, errors and software-related issues.",
+      "status": "active"
+    },
+    {
+      "id": "CAT003",
+      "name": "Network",
+      "description": "Internet, Wi-Fi, VPN and network connectivity issues.",
+      "status": "active"
+    },
+    {
+      "id": "CAT004",
+      "name": "Email",
+      "description": "Email account, mailbox and email configuration issues.",
+      "status": "active"
+    },
+    {
+      "id": "CAT005",
+      "name": "Security",
+      "description": "Security incidents and security-related requests.",
+      "status": "active"
+    },
+    {
+      "id": "CAT006",
+      "name": "Access Request",
+      "description": "Requests for system, application or resource access.",
+      "status": "active"
+    },
+    {
+      "id": "CAT007",
+      "name": "Other",
+      "description": "Issues that do not belong to another category.",
+      "status": "active"
+    }
+  ],
+  "activities": [
+    {
+      "id": "ZdA-SV11U94",
+      "ticketId": "_hqcY3SAFsI",
+      "type": "assigned",
+      "description": "Ticket assigned to Priya Sharma",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-08",
+      "createdTime": "06:00 PM"
+    },
+    {
+      "id": "GF7uYkY6M4E",
+      "ticketId": "_hqcY3SAFsI",
+      "type": "unassigned",
+      "description": "Ticket unassigned from Priya Sharma",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-08",
+      "createdTime": "06:01 PM"
+    },
+    {
+      "id": "qYQxHMVXx70",
+      "ticketId": "_hqcY3SAFsI",
+      "type": "priority_changed",
+      "description": "Ticket priority changed from High to Medium",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-08",
+      "createdTime": "06:31 PM"
+    },
+    {
+      "id": "7tAYJS1zO2c",
+      "ticketId": "_hqcY3SAFsI",
+      "type": "priority_changed",
+      "description": "Ticket priority changed from Medium to High",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-08",
+      "createdTime": "06:32 PM"
+    },
+    {
+      "id": "Fx8OwvTZIoM",
+      "ticketId": "_hqcY3SAFsI",
+      "type": "resolution_added",
+      "description": "Arun Kumar added a resolution.",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-08",
+      "createdTime": "06:49 PM"
+    },
+    {
+      "id": "zCgr5rNMeRw",
+      "ticketId": "_hqcY3SAFsI",
+      "type": "resolved",
+      "description": "Arun Kumar resolved this ticket.",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-08",
+      "createdTime": "06:49 PM"
+    },
+    {
+      "id": "zaMquUh1r28",
+      "ticketId": "_hqcY3SAFsI",
+      "type": "comment_added",
+      "description": "Arun Kumar added a comment.",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-08",
+      "createdTime": "06:51 PM"
+    },
+    {
+      "id": "BR8NK7d2DgE",
+      "ticketId": "TKT001",
+      "type": "status_changed",
+      "description": "Ticket status changed from Reopened to Assigned",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-08",
+      "createdTime": "09:42 PM"
+    },
+    {
+      "id": "PVREdpAgba8",
+      "ticketId": "_hqcY3SAFsI",
+      "type": "updated",
+      "description": "Arun Kumar deleted a comment.",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-09",
+      "createdTime": "11:03 AM"
+    },
+    {
+      "id": "S21_9sOUpS0",
+      "ticketId": "TKT001",
+      "type": "comment_added",
+      "description": "Arun Kumar added a comment.",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-09",
+      "createdTime": "11:06 AM"
+    },
+    {
+      "id": "IgQ4I4kTh-8",
+      "ticketId": "TKT005",
+      "type": "updated",
+      "description": "Arun Kumar deleted a comment.",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-10",
+      "createdTime": "11:18 AM"
+    },
+    {
+      "id": "9TIBS4TNFaA",
+      "ticketId": "TKT005",
+      "type": "comment_added",
+      "description": "Arun Kumar added a comment.",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-10",
+      "createdTime": "11:19 AM"
+    },
+    {
+      "id": "gBXqxme068Q",
+      "ticketId": "TKT003",
+      "type": "comment_added",
+      "description": "Arun Kumar added a comment.",
+      "performedBy": "USR001",
+      "createdDate": "2026-09-10",
+      "createdTime": "11:21 AM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
