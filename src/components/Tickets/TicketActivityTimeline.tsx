@@ -98,8 +98,8 @@ const TicketActivityTimeline = ({
 
   if (loading) {
     return (
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <p className="text-sm text-slate-500">
+      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-600 dark:bg-[#404040] dark:text-white">
+        <p className="text-sm text-slate-500 dark:text-white">
           Loading activity history...
         </p>
       </div>
@@ -108,8 +108,8 @@ const TicketActivityTimeline = ({
 
   if (error) {
     return (
-      <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
-        <p className="text-sm font-medium text-red-700">
+      <div className="rounded-2xl border border-red-200 bg-red-50 p-6 dark:border-red-500/40 dark:bg-[#404040] dark:text-white">
+        <p className="text-sm font-medium text-red-700 dark:text-white">
           {error}
         </p>
       </div>
@@ -117,14 +117,14 @@ const TicketActivityTimeline = ({
   }
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <div className="group rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 dark:border-slate-600 dark:bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black">
       {/* Header */}
-      <div className="border-b border-slate-200 px-5 py-4 sm:px-6">
-        <h2 className="text-lg font-semibold text-slate-900">
+      <div className="border-b border-slate-200 px-5 py-4 sm:px-6 dark:border-slate-600">
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-white dark:group-hover:text-black">
           Activity History
         </h2>
 
-        <p className="mt-1 text-sm text-slate-500">
+        <p className="mt-1 text-sm text-slate-500 dark:text-slate-200 dark:group-hover:text-black">
           Chronological history of this ticket.
         </p>
       </div>
@@ -132,15 +132,15 @@ const TicketActivityTimeline = ({
       {/* Timeline */}
       <div className="p-5 sm:p-6">
         {activities.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-8 text-center">
-            <p className="text-sm text-slate-500">
+          <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-8 text-center dark:border-slate-500 dark:bg-[#404040] dark:text-white dark:group-hover:bg-white dark:group-hover:text-black">
+            <p className="text-sm text-slate-500 dark:text-white dark:group-hover:text-black">
               No activity history available.
             </p>
           </div>
         ) : (
           <div className="relative">
             {/* Vertical timeline line */}
-            <div className="absolute bottom-0 left-[9px] top-0 w-px bg-slate-200" />
+            <div className="absolute bottom-0 left-[9px] top-0 w-px bg-slate-200 dark:bg-slate-500 dark:group-hover:bg-slate-300" />
 
             <div className="space-y-6">
               {activities.map((activity) => (
@@ -149,24 +149,24 @@ const TicketActivityTimeline = ({
                   className="relative flex gap-4"
                 >
                   {/* Timeline icon */}
-                  <div className="relative z-10 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600">
+                  <div className="relative z-10 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 dark:border-slate-500 dark:bg-[#404040] dark:text-white dark:group-hover:bg-white dark:group-hover:text-black">
                     {getActivityIcon(activity.type)}
                   </div>
 
                   {/* Activity content */}
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                      <p className="text-sm font-semibold text-slate-900">
+                      <p className="text-sm font-semibold text-slate-900 dark:text-white dark:group-hover:text-black">
                         {activity.description}
                       </p>
 
-                      <span className="text-xs text-slate-400">
+                      <span className="text-xs text-slate-400 dark:text-slate-200 dark:group-hover:text-black">
                         {activity.createdDate}{" "}
                         {activity.createdTime}
                       </span>
                     </div>
 
-                    <p className="mt-1 text-xs text-slate-500">
+                    <p className="mt-1 text-xs text-slate-500 dark:text-slate-200 dark:group-hover:text-black">
                       By {getUserName(activity.performedBy)}
                     </p>
                   </div>

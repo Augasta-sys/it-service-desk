@@ -20,6 +20,8 @@ import type { Ticket } from "../../types/ticket";
 
 import NotificationDropdown from "../Layout/NotificationDropdown";
 
+import ThemeToggle from "../common/ThemeToggle";
+
 interface NavbarProps {
   onMenuClick: () => void;
 }
@@ -64,6 +66,12 @@ const Navbar = ({
   const notificationRef =
     useRef<HTMLDivElement>(null);
 
+  /*
+   * ============================================================
+   * LOAD TICKETS
+   * ============================================================
+   */
+
   useEffect(() => {
     const loadTickets = async () => {
       try {
@@ -80,6 +88,12 @@ const Navbar = ({
 
     loadTickets();
   }, []);
+
+  /*
+   * ============================================================
+   * CLOSE NOTIFICATION DROPDOWN WHEN CLICKING OUTSIDE
+   * ============================================================
+   */
 
   useEffect(() => {
     const handleClickOutside = (
@@ -110,6 +124,12 @@ const Navbar = ({
     };
   }, [showNotifications]);
 
+  /*
+   * ============================================================
+   * FILTER TICKETS BASED ON USER ROLE
+   * ============================================================
+   */
+
   const accessibleTickets =
     tickets.filter((ticket) => {
       if (!user) {
@@ -133,6 +153,12 @@ const Navbar = ({
       return false;
     });
 
+  /*
+   * ============================================================
+   * NOTIFICATION COUNT
+   * ============================================================
+   */
+
   const notificationCount =
     accessibleTickets.filter(
       (ticket) =>
@@ -146,6 +172,12 @@ const Navbar = ({
         ].includes(ticket.status) &&
         !readNotifications.includes(ticket.id)
     ).length;
+
+  /*
+   * ============================================================
+   * NOTIFICATION CLICK
+   * ============================================================
+   */
 
   const handleNotificationClick = (
     ticketId: string
@@ -161,6 +193,12 @@ const Navbar = ({
     navigate(`/tickets/${ticketId}`);
   };
 
+  /*
+   * ============================================================
+   * PROFILE CLICK
+   * ============================================================
+   */
+
   const handleProfileClick = () => {
     navigate("/profile");
   };
@@ -170,65 +208,198 @@ const Navbar = ({
   }
 
   return (
-    <header className="app-navbar">
-      {/* Left */}
+    <header
+      className="
+        app-navbar
+
+        !bg-[#0F172A]
+        !border-[#0F173A]
+
+        dark:!bg-[#262626]
+        dark:!border-[#404040]
+      "
+    >
+      {/* =====================================================
+          LEFT SECTION
+      ====================================================== */}
+
       <div className="navbar-left">
+
+        {/* Mobile Menu */}
+
         <button
           type="button"
           onClick={onMenuClick}
-          className="navbar-menu-button"
+          className="
+            navbar-menu-button
+
+            !text-white
+            !bg-transparent
+
+            hover:!bg-white/15
+            hover:!text-white
+
+            focus:!outline-none
+            focus:!ring-2
+            focus:!ring-white/30
+
+            dark:!text-white
+            dark:!bg-transparent
+
+            dark:hover:!bg-white/10
+            dark:hover:!text-white
+
+            dark:focus:!ring-white/30
+          "
           aria-label="Open navigation menu"
         >
           <Menu size={22} />
         </button>
 
+        {/* Title */}
+
         <div className="navbar-title-wrapper">
-          <p className="navbar-title">
+          <p
+            className="
+              navbar-title
+
+              !text-white
+            "
+          >
             IT Service Desk
           </p>
 
-          <p className="navbar-subtitle">
+          <p
+            className="
+              navbar-subtitle
+
+              !text-white/80
+            "
+          >
             Ticket Management System
           </p>
         </div>
       </div>
 
-      {/* Right */}
+      {/* =====================================================
+          RIGHT SECTION
+      ====================================================== */}
+
       <div className="navbar-right">
-        {/* Notifications */}
+
+        {/* =================================================
+            THEME TOGGLE
+        ================================================== */}
+
+        <div
+          className="
+            flex
+            items-center
+            justify-center
+
+
+            p-1
+
+            transition-all
+            duration-200
+
+            hover:bg-white/15
+
+            dark:border-white/20
+            dark:bg-white/10
+            dark:hover:bg-white/15
+          "
+        >
+          <ThemeToggle />
+        </div>
+
+        {/* =================================================
+            NOTIFICATIONS
+        ================================================== */}
+
         <div
           ref={notificationRef}
-          className="navbar-notification-wrapper"
+          className="
+            navbar-notification-wrapper
+            relative
+          "
         >
-          <button
-            type="button"
-            onClick={() =>
-              setShowNotifications(
-                (previous) => !previous
-              )
-            }
-            className={`navbar-icon-button ${
-              showNotifications
-                ? "navbar-icon-button-active"
-                : ""
-            }`}
-            aria-label="Notifications"
-            aria-expanded={showNotifications}
-          >
-            <Bell
-              size={20}
-              strokeWidth={2}
-            />
+         <button
+  type="button"
+  onClick={() =>
+    setShowNotifications(
+      (previous) => !previous
+    )
+  }
+  className={`
+    navbar-icon-button
 
-            {notificationCount > 0 && (
-              <span className="notification-count">
-                {notificationCount > 99
-                  ? "99+"
-                  : notificationCount}
-              </span>
-            )}
-          </button>
+    !text-white
+    !bg-transparent
 
+    border
+    border-transparent
+
+    rounded-lg
+
+    transition-all
+    duration-200
+    ease-in-out
+
+    hover:!bg-white/10
+    hover:!text-white
+
+    active:!bg-white/15
+    active:!text-white
+
+    focus:!outline-none
+    focus:!ring-2
+    focus:!ring-white/30
+    focus:!ring-offset-0
+
+    dark:!text-white
+    dark:!bg-transparent
+
+    dark:hover:!bg-white/10
+    dark:hover:!text-white
+
+    dark:active:!bg-white/15
+    dark:active:!text-white
+
+    dark:focus:!ring-white/30
+
+    ${
+      showNotifications
+        ? "!bg-white/15 !text-white dark:!bg-white/15 dark:!text-white"
+        : ""
+    }
+  `}
+  aria-label="Notifications"
+  aria-expanded={showNotifications}
+>
+  <Bell
+    size={20}
+    strokeWidth={2}
+  />
+
+  {notificationCount > 0 && (
+    <span
+      className="
+        notification-count
+
+        !bg-white
+        !text-[#0F172A]
+
+        dark:!bg-white
+        dark:!text-[#262626]
+      "
+    >
+      {notificationCount > 99
+        ? "99+"
+        : notificationCount}
+    </span>
+  )}
+</button>
           {showNotifications && (
             <NotificationDropdown
               user={user}
@@ -243,25 +414,89 @@ const Navbar = ({
           )}
         </div>
 
-        <div className="navbar-divider" />
+        {/* =================================================
+            DIVIDER
+        ================================================== */}
 
-        {/* Profile */}
+        <div
+          className="
+            navbar-divider
+
+            !bg-white/25
+
+            dark:!bg-white/20
+          "
+        />
+
+        {/* =================================================
+            PROFILE
+        ================================================== */}
+
         <button
           type="button"
           onClick={handleProfileClick}
-          className="navbar-profile-button"
+          className="
+            navbar-profile-button
+
+            !text-white
+            !bg-transparent
+
+            rounded-lg
+
+            transition-all
+            duration-200
+
+            hover:!bg-white/10
+
+            focus:!outline-none
+            focus:!ring-2
+            focus:!ring-white/30
+
+            dark:!text-white
+            dark:!bg-transparent
+
+            dark:hover:!bg-white/10
+            dark:hover:!text-white
+
+            dark:focus:!ring-white/30
+          "
           aria-label="Open profile"
         >
-          <div className="navbar-avatar">
-            <UserCircle size={31} />
+          {/* Avatar */}
+
+          <div
+            className="
+              navbar-avatar
+
+              !text-white
+            "
+          >
+            <UserCircle
+              size={31}
+              strokeWidth={1.8}
+            />
           </div>
 
+          {/* Profile Information */}
+
           <div className="navbar-profile-info">
-            <p className="navbar-profile-name">
+            <p
+              className="
+                navbar-profile-name
+
+                !text-white
+              "
+            >
               {user.fullName}
             </p>
 
-            <p className="navbar-profile-role">
+            <p
+              className="
+                navbar-profile-role
+
+                !text-white/75
+              "
+            >
               {formatRole(user.role)}
             </p>
           </div>

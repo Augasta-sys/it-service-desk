@@ -52,7 +52,7 @@ const TicketStatusBadge = ({
 
   return (
     <span
-      className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${config.className}`}
+      className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${config.className} dark:group-hover:bg-white dark:group-hover:text-black`}
     >
       {config.label}
     </span>

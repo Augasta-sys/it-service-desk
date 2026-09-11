@@ -580,7 +580,7 @@ const Tickets = () => {
      ========================================================== */
 
   return (
-    <div className="w-full min-w-0 pb-8">
+    <div className="tickets-page w-full min-w-0 pb-8">
       {/* ======================================================
           MAIN HEADER
           ====================================================== */}
@@ -594,6 +594,7 @@ const Tickets = () => {
           border-t-4
           border-t-slate-900
           bg-white
+          dark:!bg-[#404040] dark:text-white
           shadow-sm
           transition-all
           duration-300
@@ -608,6 +609,8 @@ const Tickets = () => {
           className="
             border-b
             border-slate-100
+            dark:border-slate-600
+            dark:!bg-[#404040]
             px-4
             py-5
             sm:px-6
@@ -662,13 +665,14 @@ const Tickets = () => {
                     font-bold
                     tracking-tight
                     text-slate-900
+                    dark:text-white
                     sm:text-3xl
                   "
                 >
                   Tickets
                 </h1>
 
-                <p className="mt-1 text-sm text-slate-500 sm:text-base">
+                <p className="mt-1 text-sm text-slate-500 dark:text-slate-200 sm:text-base">
                   Manage and track service
                   desk tickets.
                 </p>
@@ -731,6 +735,8 @@ const Tickets = () => {
           className="
             border-b
             border-slate-100
+            dark:border-slate-600
+            dark:!bg-[#404040]
             px-4
             py-5
             sm:px-6
@@ -767,6 +773,7 @@ const Tickets = () => {
             grid-cols-1
             gap-3
             bg-slate-50/60
+            dark:!bg-[#404040]
             px-4
             py-4
             sm:px-6
@@ -785,6 +792,8 @@ const Tickets = () => {
               border
               border-blue-100
               bg-white
+              dark:!bg-[#404040] dark:text-white
+              dark:hover:!bg-white dark:hover:text-black
               px-4
               shadow-sm
               transition-all
@@ -839,6 +848,7 @@ const Tickets = () => {
                     text-sm
                     font-medium
                     text-slate-900
+                    dark:text-white
                     outline-none
                     placeholder:text-slate-400
                   "
@@ -860,6 +870,8 @@ const Tickets = () => {
               border
               border-cyan-100
               bg-white
+              dark:!bg-[#404040] dark:text-white
+              dark:hover:!bg-white dark:hover:text-black
               px-4
               shadow-sm
               transition-all
@@ -882,7 +894,7 @@ const Tickets = () => {
                 Total Tickets
               </p>
 
-              <p className="mt-1 text-2xl font-bold leading-none text-slate-900">
+              <p className="mt-1 text-2xl font-bold leading-none text-slate-900 dark:text-white">
                 {filteredTickets.length}
               </p>
             </div>
@@ -926,6 +938,8 @@ const Tickets = () => {
                 gap-3
                 border-b
                 border-slate-100
+                dark:border-slate-600
+                dark:!bg-[#404040]
                 px-4
                 py-4
                 sm:grid-cols-4
@@ -971,7 +985,7 @@ const Tickets = () => {
           !error &&
           !relatedDataLoading &&
           !relatedDataError && (
-            <div className="border-b border-slate-100 px-4 py-5 sm:px-6 lg:px-7">
+            <div className="border-b border-slate-100 dark:border-slate-600 dark:!bg-[#404040] dark:text-white px-4 py-5 sm:px-6 lg:px-7">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <div className="flex items-center gap-2">
@@ -981,19 +995,19 @@ const Tickets = () => {
                       />
                     </div>
 
-                    <h2 className="text-base font-bold text-slate-900 sm:text-lg">
+                    <h2 className="text-base font-bold text-slate-900 dark:text-white sm:text-lg">
                       Ticket Analytics
                     </h2>
                   </div>
 
-                  <p className="mt-1 text-xs text-slate-500 sm:text-sm">
+                  <p className="mt-1 text-xs text-slate-500 dark:text-slate-200 sm:text-sm">
                     Visual overview of the
                     currently displayed
                     tickets.
                   </p>
                 </div>
 
-                <div className="mt-2 inline-flex w-fit items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-500 sm:mt-0">
+                <div className="mt-2 inline-flex w-fit items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:border-slate-600 dark:bg-[#404040] dark:text-slate-200 sm:mt-0">
                   <Activity
                     size={13}
                     className="text-blue-500"
@@ -1020,7 +1034,8 @@ const Tickets = () => {
                 gap-4
                 border-b
                 border-slate-100
-                bg-slate-50/30
+                dark:border-slate-600
+                dark:!bg-[#404040]
                 px-4
                 py-5
                 sm:px-6
@@ -1147,6 +1162,8 @@ const Tickets = () => {
             border-t-4
             border-t-slate-500
             bg-white
+            dark:!bg-[#404040] dark:text-white
+            dark:hover:!bg-white dark:hover:text-black
             shadow-sm
           "
         >
@@ -1163,7 +1180,7 @@ const Tickets = () => {
               "
             />
 
-            <p className="text-sm font-medium text-slate-500">
+            <p className="text-sm font-medium text-slate-500 dark:text-slate-200">
               Loading tickets...
             </p>
           </div>
@@ -1184,6 +1201,8 @@ const Tickets = () => {
             border-t-4
             border-t-red-500
             bg-white
+            dark:!bg-[#404040] dark:text-white
+            dark:hover:!bg-white dark:hover:text-black
             p-5
             shadow-sm
             transition-all
@@ -1215,6 +1234,7 @@ const Tickets = () => {
               border-t-4
               border-t-red-500
               bg-white
+              dark:!bg-[#404040] dark:text-white
               p-5
               shadow-sm
             "
@@ -1243,6 +1263,8 @@ const Tickets = () => {
               border-t-4
               border-t-indigo-500
               bg-white
+              dark:!bg-[#404040] dark:text-white
+              dark:hover:!bg-white dark:hover:text-black
               shadow-sm
               transition-all
               duration-300
@@ -1292,6 +1314,7 @@ const TicketMetric = ({
         border
         border-slate-200
         bg-white
+        dark:!bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black
         p-3
         shadow-sm
         transition-all
@@ -1318,15 +1341,18 @@ const TicketMetric = ({
           group-hover:scale-110
         `}
       >
-        <Icon size={17} />
+        <Icon
+  size={18}
+  className="!text-black dark:!text-black"
+/>
       </div>
 
       <div className="min-w-0">
-        <p className="truncate text-[9px] font-bold uppercase tracking-wider text-slate-400 sm:text-[10px]">
+        <p className="truncate text-[9px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-200 group-hover:text-black sm:text-[10px]">
           {label}
         </p>
 
-        <p className="mt-0.5 text-lg font-black text-slate-900 sm:text-xl">
+        <p className="mt-0.5 text-lg font-black text-slate-900 dark:text-white group-hover:text-black sm:text-xl">
           {value}
         </p>
       </div>
@@ -1361,6 +1387,7 @@ const ChartPanel = ({
         border-t-2
         border-t-blue-500
         bg-white
+        dark:!bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black
         shadow-[0_3px_18px_rgba(15,23,42,0.04)]
         transition-all
         duration-300
@@ -1369,17 +1396,17 @@ const ChartPanel = ({
         hover:shadow-[0_12px_30px_rgba(15,23,42,0.08)]
       "
     >
-      <div className="border-b border-slate-100 px-4 py-3 sm:px-5">
-        <h3 className="text-sm font-bold text-slate-900 sm:text-base">
+      <div className="border-b border-slate-100 dark:border-slate-600 px-4 py-3 sm:px-5">
+        <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-black sm:text-base">
           {title}
         </h3>
 
-        <p className="mt-0.5 text-[10px] text-slate-500 sm:text-xs">
+        <p className="mt-0.5 text-[10px] text-slate-500 dark:text-slate-200 group-hover:text-black sm:text-xs">
           {subtitle}
         </p>
       </div>
 
-      <div className="min-w-0 p-3 sm:p-5">
+      <div className="min-w-0 bg-white p-3 sm:p-5 dark:!bg-[#404040] dark:text-white dark:group-hover:!bg-white dark:group-hover:text-black">
         {children}
       </div>
     </section>
@@ -1504,11 +1531,11 @@ const StatusDonut = ({
         </svg>
 
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-3xl font-black text-slate-900">
+          <span className="text-3xl font-black text-slate-900 dark:text-white group-hover:text-black">
             {total}
           </span>
 
-          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-200 group-hover:text-black">
             Tickets
           </span>
         </div>
@@ -1534,11 +1561,13 @@ const StatusDonut = ({
                   rounded-xl
                   border
                   border-transparent
+                  dark:!bg-[#404040] dark:text-white
                   p-2.5
                   transition-all
                   duration-200
                   hover:border-slate-200
                   hover:bg-slate-50
+                  dark:hover:bg-white dark:hover:text-black
                   hover:shadow-sm
                 "
               >
@@ -1551,12 +1580,12 @@ const StatusDonut = ({
                     }}
                   />
 
-                  <span className="truncate text-xs font-semibold text-slate-600 group-hover:text-slate-900">
+                  <span className="truncate text-xs font-semibold text-slate-600 dark:text-white group-hover:text-black">
                     {item.label}
                   </span>
                 </div>
 
-                <p className="ml-4 mt-1 text-[11px] font-medium text-slate-400">
+                <p className="ml-4 mt-1 text-[11px] font-medium text-slate-400 dark:text-slate-200 group-hover:text-black">
                   {item.value} ·{" "}
                   {percentage}%
                 </p>
@@ -1618,17 +1647,17 @@ const PriorityBars = ({
                   }}
                 />
 
-                <span className="text-xs font-bold text-slate-600 transition-colors group-hover:text-slate-900">
+                <span className="text-xs font-bold text-slate-600 dark:text-white transition-colors group-hover:text-black">
                   {item.label}
                 </span>
               </div>
 
-              <span className="rounded-md bg-slate-100 px-2 py-1 text-[10px] font-black text-slate-600 transition-all group-hover:bg-slate-900 group-hover:text-white">
+              <span className="rounded-md bg-slate-100 px-2 py-1 text-[10px] font-black text-slate-600 transition-all dark:bg-slate-500 dark:text-white group-hover:bg-slate-900 group-hover:text-white">
                 {item.value}
               </span>
             </div>
 
-            <div className="h-3 overflow-hidden rounded-full bg-slate-100">
+            <div className="h-3 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-600">
               <div
                 className="h-full rounded-full transition-all duration-700 ease-out group-hover:brightness-110"
                 style={{
@@ -1696,6 +1725,7 @@ const CategoryBars = ({
               border
               border-slate-100
               bg-slate-50/60
+              dark:!bg-[#404040] dark:text-white dark:hover:!bg-white dark:hover:text-black
               p-3
               transition-all
               duration-300
@@ -1708,17 +1738,17 @@ const CategoryBars = ({
             <div className="mb-2 flex items-center justify-between gap-2">
               <span
                 title={item.label}
-                className="min-w-0 truncate text-xs font-bold text-slate-600 group-hover:text-slate-900"
+                className="min-w-0 truncate text-xs font-bold text-slate-600 dark:text-white group-hover:text-black"
               >
                 {item.label}
               </span>
 
-              <span className="shrink-0 rounded-md bg-white px-2 py-1 text-[10px] font-black text-slate-700 shadow-sm">
+              <span className="shrink-0 rounded-md bg-white px-2 py-1 text-[10px] font-black text-slate-700 shadow-sm dark:bg-slate-500 dark:text-white group-hover:bg-slate-100 group-hover:text-black">
                 {item.value}
               </span>
             </div>
 
-            <div className="h-2.5 overflow-hidden rounded-full bg-slate-200">
+            <div className="h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-600">
               <div
                 className="h-full rounded-full transition-all duration-700 group-hover:brightness-110"
                 style={{
@@ -1730,11 +1760,11 @@ const CategoryBars = ({
             </div>
 
             <div className="mt-2 flex items-center justify-between">
-              <span className="text-[9px] font-medium text-slate-400">
+              <span className="text-[9px] font-medium text-slate-400 dark:text-slate-200 group-hover:text-black">
                 Ticket volume
               </span>
 
-              <span className="text-[9px] font-bold text-slate-500">
+              <span className="text-[9px] font-bold text-slate-500 dark:text-slate-200 group-hover:text-black">
                 {Math.round(
                   (item.value /
                     data.reduce(
@@ -1768,15 +1798,16 @@ const EmptyChart = ({
 }) => {
   return (
     <div className="flex min-h-[235px] flex-col items-center justify-center text-center">
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-400">
-        <Icon size={24} />
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-400 dark:bg-slate-500 dark:text-slate-300">
+        <Icon size={24}
+         className="!text-black dark:!text-black" />
       </div>
 
-      <p className="mt-3 text-sm font-semibold text-slate-500">
+      <p className="mt-3 text-sm font-semibold text-slate-500 dark:text-slate-200">
         {text}
       </p>
 
-      <p className="mt-1 text-xs text-slate-400">
+      <p className="mt-1 text-xs text-slate-400 dark:text-slate-300">
         Data will appear when tickets
         are available.
       </p>

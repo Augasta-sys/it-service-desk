@@ -145,7 +145,7 @@ button {
 
 .navbar-menu-button:hover {
   background: #eef2f7;
-  border-color: #cbd5e1;
+  border-color: black;
 }
 
 .navbar-menu-button:active {
@@ -201,8 +201,8 @@ button {
   border: 1px solid #e2e8f0;
   border-radius: 11px;
 
-  background: #ffffff;
-  color: #475569;
+  background: whitesmoke;
+  color: black;
 
   transition:
     background 0.2s ease,
@@ -214,7 +214,7 @@ button {
 
 .navbar-icon-button:hover {
   background: #eef2f7;
-  color: #0f172a;
+  color: black;
   border-color: #cbd5e1;
 
   box-shadow:
@@ -227,7 +227,7 @@ button {
 
 .navbar-icon-button-active {
   background: #e2e8f0;
-  color: #0f172a;
+  color: black;
   border-color: #cbd5e1;
 }
 
@@ -753,6 +753,648 @@ button {
   display: none;
 }
 
+/* =========================================
+   DASHBOARD STAT CARDS - DARK MODE
+========================================= */
+
+html.dark .dashboard-stat-card {
+  background: #404040 !important;
+  border-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+html.dark .dashboard-stat-card .dashboard-stat-title {
+  color: #ffffff !important;
+}
+
+html.dark .dashboard-stat-card .dashboard-stat-value {
+  color: #ffffff !important;
+}
+
+html.dark .dashboard-stat-card .dashboard-stat-description {
+  color: #ffffff !important;
+}
+
+/* Keep #404040 when hovering */
+html.dark .dashboard-stat-card:hover {
+  background: #404040 !important;
+  border-color: #505050 !important;
+}
+
+/* =========================================================
+   DASHBOARD CHART CARD - DARK MODE
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   MAIN CHART CARD
+   Dark normal = #404040
+   Dark hover  = #404040 + white border
+   --------------------------------------------------------- */
+
+html.dark .dashboard-chart-card {
+  background-color: #404040 !important;
+  background: #404040 !important;
+  border-color: #404040 !important;
+  color: #ffffff !important;
+
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease;
+}
+
+html.dark .dashboard-chart-card:hover {
+  background-color: #404040 !important;
+  background: #404040 !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+
+  transform: none !important;
+  box-shadow: 0 3px 18px rgba(0, 0, 0, 0.18) !important;
+}
+
+
+/* =========================================================
+   MAIN CHART CARD HEADER
+   ========================================================= */
+
+html.dark .dashboard-chart-card h1,
+html.dark .dashboard-chart-card h2,
+html.dark .dashboard-chart-card h3,
+html.dark .dashboard-chart-card h4,
+html.dark .dashboard-chart-card h5,
+html.dark .dashboard-chart-card h6 {
+  color: #ffffff !important;
+}
+
+html.dark .dashboard-chart-card > div > p {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   TICKETS BY CATEGORY
+   ========================================================= */
+
+/*
+   Normal:
+   #404040 + white text
+
+   Hover:
+   white background + black text
+*/
+
+html.dark .dashboard-chart-card .category-chart-item {
+  background-color: #404040 !important;
+  color: black !important;
+}
+
+html.dark .dashboard-chart-card .category-chart-item:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .dashboard-chart-card .category-chart-item:hover span {
+  color: #000000 !important;
+}
+
+
+/* =========================================================
+   TICKET BY PRIORITY
+   ========================================================= */
+
+/*
+   Normal:
+   #404040 + white text
+
+   Hover:
+   white background + black text
+*/
+
+html.dark .dashboard-chart-card .priority-chart-item {
+  background-color: #404040 !important;
+  color:black !important;
+}
+
+html.dark .dashboard-chart-card .priority-chart-item:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .dashboard-chart-card .priority-chart-item:hover span {
+  color: #000000 !important;
+}
+
+
+/* =========================================================
+   SERVICE DESK HEALTH
+   ========================================================= */
+
+/*
+   Normal:
+   #404040 + white text
+
+   Hover:
+   white background + black text
+*/
+
+html.dark .dashboard-chart-card .health-metric-card {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+html.dark .dashboard-chart-card .health-metric-card:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .dashboard-chart-card .health-metric-card:hover p,
+html.dark .dashboard-chart-card .health-metric-card:hover span {
+  color: #000000 !important;
+}
+
+
+/* =========================================================
+   RESOLUTION PERFORMANCE CARD
+   ========================================================= */
+
+html.dark .dashboard-chart-card .health-performance-card {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+html.dark .dashboard-chart-card .health-performance-card:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .dashboard-chart-card .health-performance-card:hover span {
+  color: #000000 !important;
+}
+
+
+/* =========================================================
+   INNER BORDERS
+   ========================================================= */
+
+html.dark .dashboard-chart-card .border-slate-100,
+html.dark .dashboard-chart-card .border-slate-200,
+html.dark .dashboard-chart-card .border-slate-300,
+html.dark .dashboard-chart-card .border-slate-700 {
+  border-color: #555555 !important;
+}
+
+
+/* =========================================================
+   CHART LABELS
+   ========================================================= */
+
+html.dark .dashboard-chart-card svg text {
+  fill: #ffffff;
+}
+
+/* =========================================================
+   RECENT TICKETS - DARK MODE
+   Normal  : #404040 background + white text
+   Hover   : white background + black text
+   ========================================================= */
+
+html.dark .recent-tickets-section {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #404040 !important;
+}
+
+/* Header */
+html.dark .recent-tickets-section .recent-tickets-header {
+  background-color: #404040 !important;
+  border-color: #555555 !important;
+  color: #ffffff !important;
+}
+
+html.dark .recent-tickets-section .recent-tickets-header h2 {
+  color: #ffffff !important;
+}
+
+html.dark .recent-tickets-section .recent-tickets-header p {
+  color: #d1d5db !important;
+}
+
+/* Table header */
+html.dark .recent-tickets-section .recent-tickets-table-head {
+  background-color: #353535 !important;
+  border-color: #555555 !important;
+}
+
+html.dark .recent-tickets-section .recent-tickets-table-head th {
+  color: #d1d5db !important;
+}
+
+/* Ticket row - NORMAL */
+html.dark .recent-tickets-section .recent-tickets-row {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+/* Ticket row - HOVER */
+html.dark .recent-tickets-section .recent-tickets-row:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* All text inside hovered row */
+html.dark .recent-tickets-section .recent-tickets-row:hover p,
+html.dark .recent-tickets-section .recent-tickets-row:hover span,
+html.dark .recent-tickets-section .recent-tickets-row:hover div {
+  color: inherit;
+}
+
+/* Main ticket subject */
+html.dark .recent-tickets-section .recent-tickets-row:hover .recent-ticket-subject {
+  color: #000000 !important;
+}
+
+/* Ticket ID */
+html.dark .recent-tickets-section .recent-tickets-row:hover .recent-ticket-id {
+  color: #525252 !important;
+}
+
+/* Category */
+html.dark .recent-tickets-section .recent-tickets-row:hover .recent-ticket-category {
+  color: #000000 !important;
+}
+
+/* Priority */
+html.dark .recent-tickets-section .recent-tickets-row:hover .recent-ticket-priority {
+  color: #000000 !important;
+}
+
+/* Updated date */
+html.dark .recent-tickets-section .recent-tickets-row:hover .recent-ticket-updated {
+  color: #000000 !important;
+}
+
+/* Calendar / clock icon */
+html.dark .recent-tickets-section .recent-tickets-row:hover .recent-ticket-updated svg {
+  color: #000000 !important;
+}
+
+/* Ticket icon */
+html.dark .recent-tickets-section .recent-tickets-row:hover .recent-ticket-icon {
+  background-color: #eff6ff !important;
+  color: #2563eb !important;
+}
+
+/* Status pill */
+html.dark .recent-tickets-section .recent-tickets-row:hover .recent-ticket-status {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #d1d5db !important;
+}
+
+/* View button */
+html.dark .recent-tickets-section .recent-tickets-row:hover .recent-ticket-view {
+  color: #000000 !important;
+}
+
+/* =========================================================
+   RECENT TICKETS - MOBILE
+   ========================================================= */
+
+html.dark .recent-tickets-section .recent-ticket-mobile {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+html.dark .recent-tickets-section .recent-ticket-mobile:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .recent-tickets-section .recent-ticket-mobile:hover .recent-ticket-subject {
+  color: #000000 !important;
+}
+
+html.dark .recent-tickets-section .recent-ticket-mobile:hover .recent-ticket-id,
+html.dark .recent-tickets-section .recent-ticket-mobile:hover .recent-ticket-label,
+html.dark .recent-tickets-section .recent-ticket-mobile:hover .recent-ticket-updated {
+  color: #525252 !important;
+}
+
+html.dark .recent-tickets-section .recent-ticket-mobile:hover .recent-ticket-category,
+html.dark .recent-tickets-section .recent-ticket-mobile:hover .recent-ticket-priority {
+  color: #000000 !important;
+}
+
+html.dark .recent-tickets-section .recent-ticket-mobile:hover .recent-ticket-icon {
+  background-color: #eff6ff !important;
+  color: #2563eb !important;
+}
+
+html.dark .recent-tickets-section .recent-ticket-mobile:hover .recent-ticket-arrow {
+  color: #000000 !important;
+}
+
+html.dark .recent-tickets-section .recent-ticket-mobile:hover .recent-ticket-status {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #d1d5db !important;
+}
+
+/* =========================================================
+   TICKETS PAGE - DARK MODE
+   ========================================================= */
+
+html.dark .tickets-page-container {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+/* Main Tickets header */
+html.dark .tickets-page-header {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+html.dark .tickets-page-title {
+  color: #ffffff !important;
+}
+
+html.dark .tickets-page-description {
+  color: #ffffff !important;
+}
+
+/* Ticket Filters */
+html.dark .tickets-filters-section {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+html.dark .tickets-filters-section label {
+  color: #ffffff !important;
+}
+
+html.dark .tickets-filter-select {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #666666 !important;
+}
+
+html.dark .tickets-filter-select option {
+  background-color: #404040;
+  color: #ffffff;
+}
+
+/* Search section */
+html.dark .tickets-search-section {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+html.dark .tickets-search-box {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #666666 !important;
+}
+
+html.dark .tickets-search-input {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+html.dark .tickets-search-input::placeholder {
+  color: #d1d5db !important;
+}
+
+/* Total tickets */
+html.dark .tickets-total-card {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #666666 !important;
+}
+
+/* =========================================================
+   QUICK METRICS
+   ========================================================= */
+
+html.dark .ticket-metric-card {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #666666 !important;
+}
+
+html.dark .ticket-metric-card:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .ticket-metric-card:hover * {
+  color: #000000 !important;
+}
+
+html.dark .ticket-metric-card .metric-label {
+  color: #ffffff !important;
+}
+
+html.dark .ticket-metric-card .metric-value {
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   TICKET ANALYTICS
+   ========================================================= */
+
+html.dark .ticket-analytics-section {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+html.dark .chart-panel {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #666666 !important;
+}
+
+html.dark .chart-panel:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .chart-panel:hover * {
+  color: #000000 !important;
+}
+
+/* Chart headings */
+html.dark .chart-panel h3,
+html.dark .chart-panel h4,
+html.dark .chart-panel p {
+  color: #ffffff !important;
+}
+
+html.dark .chart-panel:hover h3,
+html.dark .chart-panel:hover h4,
+html.dark .chart-panel:hover p {
+  color: #000000 !important;
+}
+
+/* =========================================================
+   TICKETS BY CATEGORY
+   ========================================================= */
+
+html.dark .ticket-category-card {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #666666 !important;
+}
+
+html.dark .ticket-category-card:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .ticket-category-card:hover * {
+  color: #000000 !important;
+}
+
+/* =========================================================
+   TICKET LIST
+   ========================================================= */
+
+html.dark .ticket-list-container {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #666666 !important;
+}
+
+html.dark .ticket-list-header {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #666666 !important;
+}
+
+html.dark .ticket-table-head {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+html.dark .ticket-table-row {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #666666 !important;
+}
+
+html.dark .ticket-table-row:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .ticket-table-row:hover * {
+  color: #000000 !important;
+}
+
+/* Ticket text */
+html.dark .ticket-id,
+html.dark .ticket-subject,
+html.dark .ticket-category,
+html.dark .ticket-created-by,
+html.dark .ticket-assigned-agent,
+html.dark .ticket-created-date {
+  color: #ffffff !important;
+}
+
+html.dark .ticket-table-row:hover .ticket-id,
+html.dark .ticket-table-row:hover .ticket-subject,
+html.dark .ticket-table-row:hover .ticket-category,
+html.dark .ticket-table-row:hover .ticket-created-by,
+html.dark .ticket-table-row:hover .ticket-assigned-agent,
+html.dark .ticket-table-row:hover .ticket-created-date {
+  color: #000000 !important;
+}
+
+/* =========================================================
+   MOBILE TICKET CARDS
+   ========================================================= */
+
+html.dark .ticket-mobile-card {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+  border-color: #666666 !important;
+}
+
+html.dark .ticket-mobile-card:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .ticket-mobile-card:hover * {
+  color: #000000 !important;
+}
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+html.dark .ticket-empty-state {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+html.dark .ticket-empty-state:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .dashboard-stat-card svg,
+html.dark .dashboard-stat-card .lucide,
+html.dark .dashboard-stat-card svg * {
+  color: #000000 !important;
+  stroke: #000000 !important;
+  fill: none !important;
+}
+
+/* =========================================================
+   TICKETS PAGE - TOTAL TICKETS ICON
+   Dark mode: force icon to BLACK
+   ========================================================= */
+
+html.dark .app-page-container .bg-cyan-50.text-cyan-600 svg {
+  color: #000000 !important;
+  stroke: #000000 !important;
+}
+
+html.dark .app-page-container .bg-cyan-50.text-cyan-600 svg * {
+  color: #000000 !important;
+  stroke: #000000 !important;
+}
+
+/* =========================================================
+   DARK MODE - TICKET LIST "6 TOTAL"
+   Make the total-count pill visible in dark mode.
+   ========================================================= */
+
+html.dark .ticket-list-header > div:last-child {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+html.dark .ticket-list-header > div:last-child * {
+  color: #000000 !important;
+}
+
+/* View Profile button - Dark Mode */
+html.dark button[class*="hover:bg-indigo-50"]:hover {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark button[class*="hover:bg-indigo-50"]:hover * {
+  color: #000000 !important;
+  stroke: #000000 !important;
+}
+
 
 /* =========================================
    RESPONSIVE
@@ -990,3 +1632,180 @@ button {
   }
 }
 
+/* =========================================================
+   GLOBAL DARK MODE CONTRAST RULES
+   ---------------------------------------------------------
+   Rule:
+   - Dark/gray surfaces = #404040 + white text/icons
+   - White surfaces = #ffffff + black text/icons
+   - White hover surfaces = #ffffff + black text/icons
+   - Applies across all application pages without changing
+     light-mode styling.
+   ========================================================= */
+
+/* ---------- DARK / GRAY SURFACES ---------- */
+html.dark [class~="bg-[#404040]"],
+html.dark [class~="bg-gray-900"],
+html.dark [class~="bg-gray-800"],
+html.dark [class~="bg-gray-700"],
+html.dark [class~="bg-gray-600"],
+html.dark [class~="bg-slate-900"],
+html.dark [class~="bg-slate-800"],
+html.dark [class~="bg-slate-700"],
+html.dark [class~="bg-zinc-900"],
+html.dark [class~="bg-zinc-800"],
+html.dark [class~="bg-zinc-700"],
+html.dark [class~="bg-neutral-900"],
+html.dark [class~="bg-neutral-800"],
+html.dark [class~="bg-neutral-700"],
+html.dark [class~="bg-black"] {
+  color: #ffffff !important;
+}
+
+/* Text and icons inside dark/gray cards, buttons and sections */
+html.dark [class~="bg-[#404040]"] > *,
+html.dark [class~="bg-gray-900"] > *,
+html.dark [class~="bg-gray-800"] > *,
+html.dark [class~="bg-gray-700"] > *,
+html.dark [class~="bg-gray-600"] > *,
+html.dark [class~="bg-slate-900"] > *,
+html.dark [class~="bg-slate-800"] > *,
+html.dark [class~="bg-slate-700"] > *,
+html.dark [class~="bg-zinc-900"] > *,
+html.dark [class~="bg-zinc-800"] > *,
+html.dark [class~="bg-zinc-700"] > *,
+html.dark [class~="bg-neutral-900"] > *,
+html.dark [class~="bg-neutral-800"] > *,
+html.dark [class~="bg-neutral-700"] > *,
+html.dark [class~="bg-black"] > * {
+  color: #ffffff !important;
+}
+
+/* ---------- WHITE SURFACES ---------- */
+/* Any white surface in dark mode gets black foreground. */
+html.dark [class~="bg-white"] {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+/* All text/icons directly inside normal dark-mode white surfaces */
+html.dark [class~="bg-white"] > * {
+  color: #ffffff !important;
+}
+
+/* ---------- WHITE HOVER SURFACES ---------- */
+/* When a card/button/row intentionally becomes white on hover,
+   everything inside it becomes black for proper contrast. */
+html.dark [class~="hover:bg-white"]:hover,
+html.dark [class~="dark:hover:bg-white"]:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark [class~="hover:bg-white"]:hover *,
+html.dark [class~="dark:hover:bg-white"]:hover * {
+  color: #000000 !important;
+}
+
+/* Explicit dark hover utilities used throughout the project */
+html.dark [class~="dark:hover:!bg-white"]:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark [class~="dark:hover:!bg-white"]:hover * {
+  color: #000000 !important;
+}
+
+/* ---------- WHITE BUTTONS / CONTROLS ---------- */
+html.dark button[class~="bg-white"],
+html.dark a[class~="bg-white"],
+html.dark [role="button"][class~="bg-white"] {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+html.dark button[class~="bg-white"] *,
+html.dark a[class~="bg-white"] *,
+html.dark [role="button"][class~="bg-white"] * {
+  color: #ffffff !important;
+}
+
+html.dark button[class~="hover:bg-white"]:hover,
+html.dark a[class~="hover:bg-white"]:hover,
+html.dark [role="button"][class~="hover:bg-white"]:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark button[class~="hover:bg-white"]:hover *,
+html.dark a[class~="hover:bg-white"]:hover *,
+html.dark [role="button"][class~="hover:bg-white"]:hover * {
+  color: #000000 !important;
+}
+
+/* ---------- COMMON WHITE HEX BACKGROUNDS ---------- */
+html.dark [style*="background: rgb(255, 255, 255)"],
+html.dark [style*="background-color: rgb(255, 255, 255)"],
+html.dark [style*="background:#ffffff"],
+html.dark [style*="background: #ffffff"],
+html.dark [style*="background-color:#ffffff"],
+html.dark [style*="background-color: #ffffff"] {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+/* ---------- NOTIFICATION / DROPDOWN PANELS ---------- */
+html.dark .navbar-notification-wrapper .absolute {
+  background: #404040 !important;
+  color: #ffffff !important;
+}
+
+html.dark .navbar-notification-wrapper .absolute * {
+  color: #ffffff !important;
+}
+
+html.dark .navbar-notification-wrapper .absolute button:hover,
+html.dark .navbar-notification-wrapper .absolute a:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .navbar-notification-wrapper .absolute button:hover *,
+html.dark .navbar-notification-wrapper .absolute a:hover * {
+  color: #000000 !important;
+}
+
+/* ---------- WHITE INPUTS / SELECTS ---------- */
+/* Keep controls readable when their background is white. */
+html.dark input[class~="bg-white"],
+html.dark textarea[class~="bg-white"],
+html.dark select[class~="bg-white"] {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+html.dark input[class~="bg-white"]::placeholder,
+html.dark textarea[class~="bg-white"]::placeholder {
+  color: #d1d5db !important;
+}
+
+html.dark input[class~="bg-white"]:focus,
+html.dark textarea[class~="bg-white"]:focus,
+html.dark select[class~="bg-white"]:focus {
+  color: #ffffff !important;
+}
+
+/* ---------- FORCE BLACK FOREGROUND ON ACTUAL WHITE HOVER ----------
+   This comes after all generic dark-surface rules so white hover
+   always wins over inherited white text. */
+html.dark .group:hover [class~="bg-white"],
+html.dark [class~="group"]:hover [class~="bg-white"] {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.dark .group:hover [class~="bg-white"] *,
+html.dark [class~="group"]:hover [class~="bg-white"] * {
+  color: #000000 !important;
+}

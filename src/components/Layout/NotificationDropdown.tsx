@@ -17,7 +17,9 @@ interface NotificationDropdownProps {
   user: User;
   tickets: Ticket[];
   onClose: () => void;
-  onNotificationClick: (ticketId: string) => void;
+  onNotificationClick: (
+    ticketId: string
+  ) => void;
 }
 
 interface NotificationItem {
@@ -25,11 +27,17 @@ interface NotificationItem {
   ticketId: string;
   title: string;
   message: string;
-  type: "warning" | "info" | "success" | "alert";
+  type:
+    | "warning"
+    | "info"
+    | "success"
+    | "alert";
   createdDate: string;
 }
 
-const formatStatus = (status: TicketStatus) => {
+const formatStatus = (
+  status: TicketStatus
+) => {
   return status
     .split("_")
     .map(
@@ -46,23 +54,26 @@ const NotificationDropdown = ({
   onClose,
   onNotificationClick,
 }: NotificationDropdownProps) => {
-  const accessibleTickets = tickets.filter(
-    (ticket) => {
+  const accessibleTickets =
+    tickets.filter((ticket) => {
       if (user.role === "admin") {
         return true;
       }
 
       if (user.role === "support_agent") {
-        return ticket.assignedAgent === user.id;
+        return (
+          ticket.assignedAgent === user.id
+        );
       }
 
       if (user.role === "employee") {
-        return ticket.createdBy === user.id;
+        return (
+          ticket.createdBy === user.id
+        );
       }
 
       return false;
-    }
-  );
+    });
 
   const notifications: NotificationItem[] =
     accessibleTickets
@@ -86,17 +97,11 @@ const NotificationDropdown = ({
         let type: NotificationItem["type"] =
           "info";
 
-        if (
-          ticket.priority === "critical"
-        ) {
+        if (ticket.priority === "critical") {
           type = "alert";
-        } else if (
-          ticket.status === "resolved"
-        ) {
+        } else if (ticket.status === "resolved") {
           type = "success";
-        } else if (
-          ticket.status === "pending"
-        ) {
+        } else if (ticket.status === "pending") {
           type = "warning";
         }
 
@@ -119,7 +124,7 @@ const NotificationDropdown = ({
       return (
         <AlertCircle
           size={17}
-          className="text-red-600"
+          className="text-red-600 dark:text-red-400"
         />
       );
     }
@@ -128,7 +133,7 @@ const NotificationDropdown = ({
       return (
         <CheckCircle2
           size={17}
-          className="text-emerald-600"
+          className="text-emerald-600 dark:text-emerald-400"
         />
       );
     }
@@ -137,7 +142,7 @@ const NotificationDropdown = ({
       return (
         <Clock3
           size={17}
-          className="text-amber-600"
+          className="text-amber-600 dark:text-amber-400"
         />
       );
     }
@@ -145,33 +150,74 @@ const NotificationDropdown = ({
     return (
       <Bell
         size={17}
-        className="text-blue-600"
+        className="text-blue-600 dark:text-blue-400"
       />
     );
   };
 
   return (
-   <div
-  className="
-    absolute right-0 top-12 z-50
-    w-[calc(100vw-2rem)] max-w-sm
-    overflow-hidden
-    rounded-2xl
-    border border-slate-200
-    bg-white
-    shadow-[0_18px_45px_rgba(15,23,42,0.14)]
-    sm:right-0
-  "
->
+    <div
+      className="
+        absolute
+        right-0
+        top-12
+        z-50
+        w-[calc(100vw-2rem)]
+        max-w-sm
+        overflow-hidden
+        rounded-2xl
+        border
+        border-slate-200
+        bg-white
+        text-slate-900
+        shadow-[0_18px_45px_rgba(15,23,42,0.14)]
+        transition-colors
+        duration-300
+
+        dark:!bg-[#404040]
+        dark:!text-white
+        dark:!border-[#555555]
+        dark:shadow-[0_18px_45px_rgba(0,0,0,0.45)]
+
+        sm:right-0
+      "
+    >
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
+      <div
+        className="
+          flex
+          items-center
+          justify-between
+          border-b
+          border-slate-200
+          px-4
+          py-3
+
+          dark:!border-[#555555]
+        "
+      >
         <div>
-          <h2 className="text-sm font-semibold text-slate-900">
+          <h2
+            className="
+              text-sm
+              font-semibold
+              text-slate-900
+              dark:!text-white
+            "
+          >
             Notifications
           </h2>
 
-          <p className="mt-0.5 text-xs text-slate-500">
-            {notifications.length} notification
+          <p
+            className="
+              mt-0.5
+              text-xs
+              text-slate-500
+              dark:!text-white
+            "
+          >
+            {notifications.length}{" "}
+            notification
             {notifications.length !== 1
               ? "s"
               : ""}
@@ -181,7 +227,23 @@ const NotificationDropdown = ({
         <button
           type="button"
           onClick={onClose}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 transition hover:bg-slate-100 hover:text-slate-900"
+          className="
+            flex
+            h-8
+            w-8
+            items-center
+            justify-center
+            rounded-lg
+            text-slate-500
+            transition
+
+            hover:bg-slate-100
+            hover:text-slate-900
+
+            dark:!text-white
+            dark:hover:!bg-white/10
+            dark:hover:!text-white
+          "
           aria-label="Close notifications"
         >
           <X size={17} />
@@ -189,21 +251,57 @@ const NotificationDropdown = ({
       </div>
 
       {/* Notification List */}
-      <div className="hide-scrollbar max-h-[min(70vh,420px)] overflow-y-auto">
+      <div
+        className="
+          hide-scrollbar
+          max-h-[min(70vh,420px)]
+          overflow-y-auto
+        "
+      >
         {notifications.length === 0 ? (
           <div className="px-6 py-10 text-center">
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
+            <div
+              className="
+                mx-auto
+                flex
+                h-12
+                w-12
+                items-center
+                justify-center
+                rounded-full
+                bg-slate-100
+                dark:!bg-[#555555]
+              "
+            >
               <Bell
                 size={21}
-                className="text-slate-400"
+                className="
+                  text-slate-400
+                  dark:!text-white
+                "
               />
             </div>
 
-            <p className="mt-3 text-sm font-medium text-slate-700">
+            <p
+              className="
+                mt-3
+                text-sm
+                font-medium
+                text-slate-700
+                dark:!text-white
+              "
+            >
               No notifications
             </p>
 
-            <p className="mt-1 text-xs text-slate-500">
+            <p
+              className="
+                mt-1
+                text-xs
+                text-slate-500
+                dark:!text-white
+              "
+            >
               You're all caught up.
             </p>
           </div>
@@ -218,24 +316,76 @@ const NotificationDropdown = ({
                     notification.ticketId
                   )
                 }
-                className="flex w-full gap-3 border-b border-slate-100 px-4 py-4 text-left transition hover:bg-slate-50"
+                className="
+                  flex
+                  w-full
+                  gap-3
+                  border-b
+                  border-slate-100
+                  px-4
+                  py-4
+                  text-left
+                  transition
+
+                  hover:bg-slate-50
+
+                  dark:!border-[#555555]
+                  dark:hover:!bg-[#555555]
+                "
               >
-                <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100">
+                <div
+                  className="
+                    mt-0.5
+                    flex
+                    h-8
+                    w-8
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-full
+                    bg-slate-100
+
+                    dark:!bg-[#555555]
+                  "
+                >
                   {getIcon(
                     notification.type
                   )}
                 </div>
 
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-semibold text-slate-800">
+                  <p
+                    className="
+                      truncate
+                      text-sm
+                      font-semibold
+                      text-slate-800
+                      dark:!text-white
+                    "
+                  >
                     {notification.title}
                   </p>
 
-                  <p className="mt-1 text-xs leading-5 text-slate-500">
+                  <p
+                    className="
+                      mt-1
+                      text-xs
+                      leading-5
+                      text-slate-500
+                      dark:!text-white
+                    "
+                  >
                     {notification.message}
                   </p>
 
-                  <p className="mt-1 text-[11px] text-slate-400">
+                  <p
+                    className="
+                      mt-1
+                      text-[11px]
+                      text-slate-400
+                      dark:!text-white
+                    "
+                  >
                     Updated{" "}
                     {notification.createdDate}
                   </p>

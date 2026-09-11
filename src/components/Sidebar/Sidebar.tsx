@@ -10,7 +10,10 @@ import {
   X,
 } from "lucide-react";
 
-import { NavLink, useNavigate } from "react-router-dom";
+import {
+  NavLink,
+  useNavigate,
+} from "react-router-dom";
 
 import { useAuth } from "../../hooks/useAuth";
 
@@ -110,23 +113,25 @@ const Sidebar = ({
     },
   ];
 
-  const getNavigationItems = (): NavigationItem[] => {
-    switch (user.role) {
-      case "admin":
-        return adminNavigation;
+  const getNavigationItems =
+    (): NavigationItem[] => {
+      switch (user.role) {
+        case "admin":
+          return adminNavigation;
 
-      case "support_agent":
-        return supportAgentNavigation;
+        case "support_agent":
+          return supportAgentNavigation;
 
-      case "employee":
-        return employeeNavigation;
+        case "employee":
+          return employeeNavigation;
 
-      default:
-        return [];
-    }
-  };
+        default:
+          return [];
+      }
+    };
 
-  const navigationItems = getNavigationItems();
+  const navigationItems =
+    getNavigationItems();
 
   const getRoleLabel = () => {
     switch (user.role) {
@@ -146,7 +151,11 @@ const Sidebar = ({
 
   const handleLogout = () => {
     logout();
-    navigate("/login", { replace: true });
+
+    navigate("/login", {
+      replace: true,
+    });
+
     onClose?.();
   };
 
@@ -156,63 +165,169 @@ const Sidebar = ({
 
   return (
     <>
+      {/* Mobile overlay */}
+
       {isOpen && (
         <div
-          className="sidebar-overlay"
+          className="
+            sidebar-overlay
+
+            dark:bg-black/70
+          "
           onClick={onClose}
           aria-hidden="true"
         />
       )}
 
-      <aside
-        className={`app-sidebar ${
-          isOpen ? "app-sidebar-open" : ""
-        }`}
-      >
-        {/* Header */}
-        <div className="sidebar-header">
+      {/* =====================================================
+          SIDEBAR
+      ====================================================== */}
+<aside
+  className={`
+    app-sidebar
+
+    ${isOpen ? "app-sidebar-open" : ""}
+
+    dark:!bg-[#262626]
+    dark:!border-[#404040]
+  `}
+>
+        {/* ===================================================
+            HEADER
+        ==================================================== */}
+
+        <div
+          className="
+            sidebar-header
+
+            !border-white/20
+
+            dark:!border-white/15
+          "
+        >
           <div className="sidebar-brand">
-            <div className="sidebar-brand-icon">
-              <Ticket size={19} strokeWidth={2.2} />
+            <div
+              className="
+                sidebar-brand-icon
+
+                !bg-white/15
+                !text-white
+
+                dark:!bg-white/10
+                dark:!text-white
+              "
+            >
+              <Ticket
+                size={19}
+                strokeWidth={2.2}
+              />
             </div>
 
             <div className="sidebar-brand-text">
-              <h1>Service Desk</h1>
+              <h1
+                className="
+                  !text-white
+                "
+              >
+                Service Desk
+              </h1>
 
-              <p>IT Ticket Management</p>
+              <p
+                className="
+                  !text-white/75
+                "
+              >
+                IT Ticket Management
+              </p>
             </div>
           </div>
+
+          {/* Mobile close */}
 
           <button
             type="button"
             onClick={onClose}
-            className="sidebar-close-button"
+            className="
+              sidebar-close-button
+
+              !text-white
+              hover:!bg-white
+              hover:!text-black
+
+              dark:!text-white
+              dark:hover:!bg-white
+              dark:hover:!text-black
+            "
             aria-label="Close navigation menu"
           >
             <X size={20} />
           </button>
         </div>
 
-        {/* User */}
-        <div className="sidebar-user">
-          <div className="sidebar-user-avatar">
+        {/* ===================================================
+            USER
+        ==================================================== */}
+
+        <div
+          className="
+            sidebar-user
+
+            !border-white/20
+            !bg-white/10
+
+            dark:!border-white/15
+            dark:!bg-white/10
+          "
+        >
+          <div
+            className="
+              sidebar-user-avatar
+              !text-white
+            "
+          >
             <UserCircle size={24} />
           </div>
 
           <div className="sidebar-user-info">
-            <span className="sidebar-user-label">
+            <span
+              className="
+                sidebar-user-label
+                !text-white/60
+              "
+            >
               Signed in as
             </span>
 
-            <strong>{user.fullName}</strong>
+            <strong
+              className="
+                !text-white
+              "
+            >
+              {user.fullName}
+            </strong>
 
-            <span>{getRoleLabel()}</span>
+            <span
+              className="
+                !text-white/75
+              "
+            >
+              {getRoleLabel()}
+            </span>
           </div>
         </div>
 
-        {/* Navigation */}
+        {/* ===================================================
+            NAVIGATION
+        ==================================================== */}
+
         <nav className="sidebar-navigation">
-          <p className="sidebar-section-title">
+          <p
+            className="
+              sidebar-section-title
+
+              !text-white/60
+            "
+          >
             Navigation
           </p>
 
@@ -226,15 +341,43 @@ const Sidebar = ({
                   to={item.path}
                   onClick={handleNavigation}
                   className={({ isActive }) =>
-                    `sidebar-nav-link ${
+                    `
+                    sidebar-nav-link
+
+                    !text-white
+
+                    hover:!bg-white
+                    hover:!text-black
+
+                    dark:!text-white
+                    dark:hover:!bg-white
+                    dark:hover:!text-black
+
+                    ${
                       isActive
-                        ? "sidebar-nav-link-active"
+                        ? `
+                          sidebar-nav-link-active
+                          !bg-blue-800
+                          !text-white
+
+                          dark:!bg-[#404040]
+                          dark:!text-white
+                        `
                         : ""
-                    }`
+                    }
+                    `
                   }
                 >
-                  <span className="sidebar-nav-icon">
-                    <Icon size={19} strokeWidth={2} />
+                  <span
+                    className="
+                      sidebar-nav-icon
+                      !text-current
+                    "
+                  >
+                    <Icon
+                      size={19}
+                      strokeWidth={2}
+                    />
                   </span>
 
                   <span>{item.label}</span>
@@ -244,12 +387,39 @@ const Sidebar = ({
           </div>
         </nav>
 
-        {/* Logout */}
-        <div className="sidebar-footer">
+        {/* ===================================================
+            LOGOUT
+        ==================================================== */}
+
+        <div
+          className="
+            sidebar-footer
+
+            !border-white/20
+
+            dark:!border-white/15
+          "
+        >
           <button
             type="button"
             onClick={handleLogout}
-            className="sidebar-logout-button"
+            className="
+              sidebar-logout-button
+
+              !border-white/15
+              !bg-white/10
+              !text-white
+
+              hover:!bg-white
+              hover:!text-black
+
+              dark:!border-white/10
+              dark:!bg-white/10
+              dark:!text-white
+
+              dark:hover:!bg-white
+              dark:hover:!text-black
+            "
           >
             <LogOut size={19} />
 

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
 * {
   box-sizing: border-box;
 }
@@ -15,69 +19,568 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Hide scrollbar while keeping scroll functionality */
-.hide-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.category-form-scroll {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.category-form-scroll::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-.category-modal {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.category-modal::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-/* =========================================
-   VIEW OTHER PROFILE POPUP
-========================================= */
-
-.profile-view-popup {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.profile-view-popup::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
 
 /* =========================================================
-   PROFILE VIEW MODAL
+   GLOBAL THEME
 ========================================================= */
 
-.profile-view-modal-body {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+html {
+  color-scheme: light;
+  background-color: #f4f8fc;
 }
 
-.profile-view-modal-body::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
+html.dark {
+  color-scheme: dark;
+  background-color: #000000;
 }
 
-/* Keep the modal above the sidebar and other layout elements */
-.profile-view-modal {
-  isolation: isolate;
+body {
+  background-color: #f4f8fc;
+  color: #111827;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
+
+html.dark body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   MAIN APP - LIGHT MODE
+========================================================= */
+
+.app-layout {
+  background-color: #f4f8fc;
+}
+
+.app-main-wrapper {
+  background-color: #f4f8fc;
+}
+
+.app-main-content {
+  background-color: #f4f8fc;
+}
+
+.app-page-container {
+  background-color: transparent;
+  color: #111827;
+}
+
+
+/* =========================================================
+   MAIN APP - DARK MODE
+========================================================= */
+
+html.dark .app-layout {
+  background-color: #000000;
+}
+
+html.dark .app-main-wrapper {
+  background-color: #000000;
+}
+
+html.dark .app-main-content {
+  background-color: #000000;
+}
+
+html.dark .app-page-container {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   NAVBAR THEME
+========================================================= */
+
+.app-navbar {
+  background-color: #0F172A !important;
+  border-color: #0F173A !important;
+}
+
+html.dark .app-navbar {
+  background-color: #262626 !important;
+  border-color: #404040 !important;
+}
+
+
+/* =========================================================
+   NAVBAR TEXT
+========================================================= */
+
+.navbar-title {
+  color: #ffffff;
+}
+
+.navbar-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+html.dark .navbar-title {
+  color: #ffffff;
+}
+
+html.dark .navbar-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* =========================================================
+   NAVBAR DIVIDER
+========================================================= */
+
+.navbar-divider {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+html.dark .navbar-divider {
+  background-color: #404040;
+}
+
+
+/* =========================================================
+   NAVBAR ICON BUTTON
+========================================================= */
+
+.navbar-icon-button {
+  color: #ffffff;
+  background-color: transparent;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.navbar-icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+.navbar-icon-button:active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.navbar-icon-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.30);
+}
+
+.navbar-icon-button-active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   NAVBAR PROFILE
+========================================================= */
+
+.navbar-profile-button {
+  color: #ffffff;
+  background-color: transparent;
+
+  border-radius: 8px;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.navbar-profile-button:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+.navbar-profile-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.30);
+}
+
+.navbar-profile-name {
+  color: #ffffff;
+}
+
+.navbar-profile-role {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.navbar-avatar {
+  color: #ffffff;
+}
+
+html.dark .navbar-profile-button {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+html.dark .navbar-profile-button:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+html.dark .navbar-profile-name {
+  color: #ffffff;
+}
+
+html.dark .navbar-profile-role {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+html.dark .navbar-avatar {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   NAVBAR MENU BUTTON
+========================================================= */
+
+.navbar-menu-button {
+  color: #ffffff;
+  background-color: transparent;
+
+  border-radius: 8px;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.navbar-menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.navbar-menu-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.30);
+}
+
+html.dark .navbar-menu-button {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+html.dark .navbar-menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   NOTIFICATION COUNT
+========================================================= */
+
+.notification-count {
+  background-color: #ffffff;
+  color: #0F172A;
+
+  border: 2px solid #0F172A;
+}
+
+html.dark .notification-count {
+  background-color: #ffffff;
+  color: #262626;
+
+  border-color: #262626;
+}
+
+
+/* =========================================================
+   SIDEBAR THEME
+========================================================= */
+
+.app-sidebar {
+  background-color: #0F172A !important;
+  border-color: #0F173A !important;
+}
+
+html.dark .app-sidebar {
+  background-color: #262626 !important;
+  border-color: #404040 !important;
+}
+
+
+/* =========================================================
+   SIDEBAR HEADER
+========================================================= */
+
+.sidebar-header {
+  border-color: #0F173A;
+}
+
+html.dark .sidebar-header {
+  border-color: #404040;
+}
+
+
+/* =========================================================
+   SIDEBAR BRAND
+========================================================= */
+
+.sidebar-brand-text h1 {
+  color: #ffffff;
+}
+
+.sidebar-brand-text p {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.sidebar-brand-icon {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+html.dark .sidebar-brand-text h1 {
+  color: #ffffff;
+}
+
+html.dark .sidebar-brand-text p {
+  color: rgba(255, 255, 255, 0.70);
+}
+
+html.dark .sidebar-brand-icon {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SIDEBAR USER
+========================================================= */
+
+.sidebar-user {
+  border-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-user-avatar {
+  color: #ffffff;
+}
+
+.sidebar-user-label {
+  color: rgba(255, 255, 255, 0.50);
+}
+
+.sidebar-user-info strong {
+  color: #ffffff;
+}
+
+.sidebar-user-info > span:last-child {
+  color: rgba(255, 255, 255, 0.70);
+}
+
+html.dark .sidebar-user {
+  border-color: #404040;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+html.dark .sidebar-user-avatar {
+  color: #ffffff;
+}
+
+html.dark .sidebar-user-label {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+html.dark .sidebar-user-info strong {
+  color: #ffffff;
+}
+
+html.dark .sidebar-user-info > span:last-child {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* =========================================================
+   SIDEBAR SECTION TITLE
+========================================================= */
+
+.sidebar-section-title {
+  color: rgba(255, 255, 255, 0.50);
+}
+
+html.dark .sidebar-section-title {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+========================================================= */
+
+.sidebar-nav-link {
+  color: rgba(255, 255, 255, 0.80);
+}
+
+.sidebar-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+.sidebar-nav-link-active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.sidebar-nav-icon {
+  color: inherit;
+}
+
+html.dark .sidebar-nav-link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+html.dark .sidebar-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+html.dark .sidebar-nav-link-active {
+  background-color: #404040;
+  color: #ffffff;
+}
+
+html.dark .sidebar-nav-icon {
+  color: inherit;
+}
+
+
+/* =========================================================
+   SIDEBAR CLOSE BUTTON
+========================================================= */
+
+.sidebar-close-button {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.sidebar-close-button:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+html.dark .sidebar-close-button {
+  color: #ffffff;
+}
+
+html.dark .sidebar-close-button:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SIDEBAR FOOTER
+========================================================= */
+
+.sidebar-footer {
+  border-color: #0F173A;
+}
+
+html.dark .sidebar-footer {
+  border-color: #404040;
+}
+
+
+/* =========================================================
+   SIDEBAR LOGOUT
+========================================================= */
+
+.sidebar-logout-button {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.05);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.sidebar-logout-button:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+html.dark .sidebar-logout-button {
+  color: #ffffff;
+  border-color: #404040;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+html.dark .sidebar-logout-button:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SIDEBAR OVERLAY
+========================================================= */
+
+.sidebar-overlay {
+  background-color: rgba(0, 0, 0, 0.50);
+}
+
+html.dark .sidebar-overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+
+/* =========================================================
+   DASHBOARD BANNER
+========================================================= */
+
+.dashboard-header {
+  background-color: #0F172A !important;
+  border-color: #0F173A !important;
+}
+
+html.dark .dashboard-header {
+  background-color: #262626 !important;
+  border-color: #404040 !important;
+}
+
+
+/* =========================================================
+   COMMON DARK MODE SURFACE
+========================================================= */
+
+html.dark .app-sidebar,
+html.dark .app-navbar {
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   GLOBAL TRANSITIONS
+========================================================= */
+
+.app-navbar,
+.app-sidebar,
+.app-main-wrapper,
+.app-main-content,
+.app-page-container,
+.sidebar-user,
+.sidebar-nav-link,
+.sidebar-logout-button,
+.navbar-icon-button,
+.navbar-profile-button,
+.navbar-menu-button {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+

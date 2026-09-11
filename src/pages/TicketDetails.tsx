@@ -907,11 +907,11 @@ const TicketDetails = () => {
    */
   if (loading) {
     return (
-      <div className="mx-auto flex min-h-[420px] w-full max-w-[1800px] items-center justify-center rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="group mx-auto flex min-h-[420px] w-full max-w-[1800px] items-center justify-center rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-600 dark:bg-[#404040] dark:text-white">
         <div className="flex flex-col items-center gap-3">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-slate-200 border-t-slate-800" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-slate-200 border-t-slate-800 dark:border-slate-500 dark:border-t-white" />
 
-          <p className="text-sm font-medium text-slate-500">
+          <p className="text-sm font-medium text-slate-500 dark:text-white">
             Loading ticket details...
           </p>
         </div>
@@ -924,7 +924,7 @@ const TicketDetails = () => {
    */
   if (error || !ticket) {
     return (
-      <div className="mx-auto w-full max-w-[1800px] rounded-2xl border border-red-200 bg-red-50 p-5 sm:p-6">
+      <div className="group mx-auto w-full max-w-[1800px] rounded-2xl border border-red-200 bg-red-50 p-5 sm:p-6 dark:border-red-500/40 dark:bg-[#404040] dark:text-white">
         <div className="flex items-start gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-100 text-red-600">
             <span className="text-lg font-bold">
@@ -947,7 +947,7 @@ const TicketDetails = () => {
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="mt-5 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 active:scale-[0.98]"
+          className="mt-5 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 active:scale-[0.98] dark:hover:bg-white dark:hover:text-black"
         >
           <ArrowLeft size={17} />
           Go Back
@@ -964,7 +964,7 @@ const TicketDetails = () => {
     !canViewTicket(ticket, user)
   ) {
     return (
-      <div className="mx-auto w-full max-w-[1800px] rounded-2xl border border-red-200 bg-white p-5 shadow-sm sm:p-6">
+      <div className="group mx-auto w-full max-w-[1800px] rounded-2xl border border-red-200 bg-white p-5 shadow-sm sm:p-6 dark:border-red-500/40 dark:bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black">
         <div className="flex items-start gap-4">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-red-50 text-red-600">
             <span className="text-lg font-bold">
@@ -973,11 +973,11 @@ const TicketDetails = () => {
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold text-slate-900">
+            <h2 className="text-lg font-semibold text-slate-900 dark:text-white dark:group-hover:text-black">
               Access Denied
             </h2>
 
-            <p className="mt-1 text-sm leading-6 text-slate-500">
+            <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-200 dark:group-hover:text-black">
               You do not have permission
               to view this ticket.
             </p>
@@ -987,7 +987,7 @@ const TicketDetails = () => {
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="mt-5 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 active:scale-[0.98]"
+          className="mt-5 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 active:scale-[0.98] dark:hover:bg-white dark:hover:text-black"
         >
           <ArrowLeft size={17} />
           Go Back
@@ -1035,7 +1035,7 @@ const TicketDetails = () => {
       <button
         type="button"
         onClick={() => navigate(-1)}
-        className="mb-5 inline-flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-white hover:text-slate-900"
+        className="mb-5 inline-flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-white hover:text-slate-900 dark:text-slate-300"
       >
         <ArrowLeft size={17} />
         Back
@@ -1045,20 +1045,20 @@ const TicketDetails = () => {
       {/* Ticket Header */}
       {/* ====================================================== */}
 
-      <div className="overflow-hidden rounded-2xl border border-slate-100 border-t-4 border-t-slate-900 bg-white shadow-sm transition-all duration-300 hover:border-slate-200 hover:border-t-slate-950 hover:shadow-md">
+      <div className="group overflow-hidden rounded-2xl border border-slate-100 border-t-4 border-t-slate-900 bg-white text-slate-900 shadow-sm transition-all duration-300 hover:border-slate-200 hover:border-t-slate-950 hover:shadow-md dark:border-slate-600 dark:border-t-slate-300 dark:bg-[#404040] dark:text-white dark:hover:border-white dark:hover:border-t-white dark:hover:bg-white dark:hover:text-black">
         <div className="h-1 bg-slate-900" />
 
         <div className="flex flex-col gap-6 p-5 sm:p-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="min-w-0">
-            <span className="inline-flex rounded-md bg-slate-100 px-2.5 py-1 text-xs font-bold tracking-wide text-slate-600">
+            <span className="inline-flex rounded-md bg-slate-100 px-2.5 py-1 text-xs font-bold tracking-wide text-slate-600 dark:bg-slate-500 dark:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-black">
               {ticket.id}
             </span>
 
-            <h1 className="mt-3 max-w-4xl text-2xl font-bold leading-tight tracking-tight text-slate-950 sm:text-3xl">
+            <h1 className="mt-3 max-w-4xl text-2xl font-bold leading-tight tracking-tight text-slate-950 sm:text-3xl dark:text-white dark:group-hover:text-black">
               {ticket.subject}
             </h1>
 
-            <p className="mt-2 text-sm leading-6 text-slate-500">
+            <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-200 dark:group-hover:text-black">
               Ticket details and current
               status
             </p>
@@ -1085,7 +1085,7 @@ const TicketDetails = () => {
                       `/tickets/${ticket.id}/edit`
                     )
                   }
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-900 bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:border-slate-700 hover:bg-slate-800 hover:shadow-md active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-900 bg-slate-900 px-4 py-2.5 dark:border-white dark:bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:border-slate-700 hover:bg-slate-800 hover:shadow-md active:scale-[0.98]"
                 >
                   <Pencil size={16} />
                   Edit Ticket
@@ -1099,25 +1099,25 @@ const TicketDetails = () => {
       {/* Ticket Information */}
       {/* ====================================================== */}
 
-      <div className="mt-6 overflow-hidden rounded-2xl border border-blue-100 border-t-4 border-t-blue-500 bg-white shadow-sm transition-all duration-300 hover:border-blue-200 hover:border-t-blue-600 hover:shadow-md">
-        <div className="border-b border-blue-100 bg-blue-50/40 px-5 py-4 sm:px-6">
-          <h2 className="text-base font-bold text-slate-900 sm:text-lg">
+      <div className="group mt-6 overflow-hidden rounded-2xl border border-blue-100 border-t-4 border-t-blue-500 bg-white text-slate-900 shadow-sm transition-all duration-300 hover:border-blue-200 hover:border-t-blue-600 hover:shadow-md dark:border-slate-600 dark:border-t-blue-400 dark:bg-[#404040] dark:text-white dark:hover:border-white dark:hover:border-t-white dark:hover:bg-white dark:hover:text-black">
+        <div className="border-b border-blue-100 bg-blue-50/40 px-5 py-4 sm:px-6 dark:border-slate-600 dark:bg-[#404040] dark:group-hover:bg-white">
+          <h2 className="text-base font-bold text-slate-900 sm:text-lg dark:text-white dark:group-hover:text-black">
             Ticket Information
           </h2>
 
-          <p className="mt-1 text-xs leading-5 text-slate-500 sm:text-sm">
+          <p className="mt-1 text-xs leading-5 text-slate-500 sm:text-sm dark:text-slate-200 dark:group-hover:text-black">
             Overview of the ticket metadata and contact details.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {/* Category */}
-          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400">
+          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6 dark:border-slate-600 dark:bg-[#404040] dark:hover:bg-white">
+            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-300 dark:group-hover:text-slate-600">
               Category
             </p>
 
-            <p className="mt-2 text-sm font-semibold text-slate-900">
+            <p className="mt-2 text-sm font-semibold text-slate-900 dark:text-white dark:group-hover:text-black">
               {getCategoryName(
                 ticket.category
               )}
@@ -1125,17 +1125,17 @@ const TicketDetails = () => {
           </div>
 
           {/* Created By */}
-          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400">
+          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6 dark:border-slate-600 dark:bg-[#404040] dark:hover:bg-white">
+            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-300 dark:group-hover:text-slate-600">
               Created By
             </p>
 
             <div className="mt-2 flex min-w-0 items-center gap-2.5">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500 dark:bg-slate-500 dark:text-white dark:group-hover:bg-slate-100 dark:group-hover:text-black">
                 <User size={15} />
               </div>
 
-              <p className="truncate text-sm font-semibold text-slate-900">
+              <p className="truncate text-sm font-semibold text-slate-900 dark:text-white dark:group-hover:text-black">
                 {getUserName(
                   ticket.createdBy
                 )}
@@ -1144,8 +1144,8 @@ const TicketDetails = () => {
           </div>
 
           {/* Assigned Agent */}
-          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400">
+          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6 dark:border-slate-600 dark:bg-[#404040] dark:hover:bg-white">
+            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-300 dark:group-hover:text-slate-600">
               Assigned Agent
             </p>
 
@@ -1160,7 +1160,7 @@ const TicketDetails = () => {
                 <User size={15} />
               </div>
 
-              <p className="truncate text-sm font-semibold text-slate-900">
+              <p className="truncate text-sm font-semibold text-slate-900 dark:text-white dark:group-hover:text-black">
                 {getUserName(
                   ticket.assignedAgent
                 )}
@@ -1169,20 +1169,20 @@ const TicketDetails = () => {
           </div>
 
           {/* Assignment Date */}
-          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400">
+          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6 dark:border-slate-600 dark:bg-[#404040] dark:hover:bg-white">
+            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-300 dark:group-hover:text-slate-600">
               Assignment Date
             </p>
 
-            <p className="mt-2 text-sm font-semibold text-slate-900">
+            <p className="mt-2 text-sm font-semibold text-slate-900 dark:text-white dark:group-hover:text-black">
               {ticket.assignmentDate ||
                 "Not assigned"}
             </p>
           </div>
 
           {/* Created Date */}
-          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400">
+          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6 dark:border-slate-600 dark:bg-[#404040] dark:hover:bg-white">
+            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-300 dark:group-hover:text-slate-600">
               Created Date
             </p>
 
@@ -1198,8 +1198,8 @@ const TicketDetails = () => {
           </div>
 
           {/* Updated Date */}
-          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400">
+          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6 dark:border-slate-600 dark:bg-[#404040] dark:hover:bg-white">
+            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-300 dark:group-hover:text-slate-600">
               Updated Date
             </p>
 
@@ -1215,8 +1215,8 @@ const TicketDetails = () => {
           </div>
 
           {/* Due Date */}
-          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400">
+          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6 dark:border-slate-600 dark:bg-[#404040] dark:hover:bg-white">
+            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-300 dark:group-hover:text-slate-600">
               Due Date
             </p>
 
@@ -1232,8 +1232,8 @@ const TicketDetails = () => {
           </div>
 
           {/* Contact Method */}
-          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400">
+          <div className="border-b border-slate-100 px-5 py-5 transition-colors duration-300 hover:bg-slate-50/70 sm:px-6 dark:border-slate-600 dark:bg-[#404040] dark:hover:bg-white">
+            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-300 dark:group-hover:text-slate-600">
               Preferred Contact
             </p>
 
@@ -1256,13 +1256,13 @@ const TicketDetails = () => {
 
       {user &&
         canAssignTicket(user) && (
-          <div className="mt-6 overflow-hidden rounded-2xl border border-indigo-100 border-t-4 border-t-indigo-500 bg-white shadow-sm transition-all duration-300 hover:border-indigo-200 hover:border-t-indigo-600 hover:shadow-md">
-            <div className="border-b border-indigo-100 bg-indigo-50/40 px-5 py-4 sm:px-6">
-              <h2 className="text-base font-bold text-slate-900 sm:text-lg">
+          <div className="group mt-6 overflow-hidden rounded-2xl border border-indigo-100 border-t-4 border-t-indigo-500 bg-white text-slate-900 shadow-sm transition-all duration-300 hover:border-indigo-200 hover:border-t-indigo-600 hover:shadow-md dark:border-slate-600 dark:border-t-indigo-400 dark:bg-[#404040] dark:text-white dark:hover:border-white dark:hover:border-t-white dark:hover:bg-white dark:hover:text-black">
+            <div className="border-b border-indigo-100 bg-indigo-50/40 px-5 py-4 sm:px-6 dark:border-slate-600 dark:bg-[#404040] dark:group-hover:bg-white">
+              <h2 className="text-base font-bold text-slate-900 sm:text-lg dark:text-white dark:group-hover:text-black">
                 Ticket Assignment
               </h2>
 
-              <p className="mt-1 text-xs leading-5 text-slate-500 sm:text-sm">
+              <p className="mt-1 text-xs leading-5 text-slate-500 sm:text-sm dark:text-slate-200 dark:group-hover:text-black">
                 Assign or reassign this
                 ticket to a support
                 agent.
@@ -1274,7 +1274,7 @@ const TicketDetails = () => {
                 <div className="min-w-0">
                   <label
                     htmlFor="assigned-agent"
-                    className="mb-2 block text-sm font-semibold text-slate-700"
+                    className="mb-2 block text-sm font-semibold text-slate-700 dark:text-white dark:group-hover:text-black"
                   >
                     Support Agent
                   </label>
@@ -1287,7 +1287,7 @@ const TicketDetails = () => {
                         event.target.value
                       )
                     }
-                    className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm font-medium text-slate-700 outline-none transition-all duration-300 hover:border-cyan-300 hover:shadow-sm focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100"
+                    className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm font-medium text-slate-700 outline-none transition-all duration-300 hover:border-cyan-300 hover:shadow-sm focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 dark:border-slate-500 dark:bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black dark:focus:bg-[#404040]"
                   >
                     <option value="">
                       Unassigned
@@ -1318,7 +1318,7 @@ const TicketDetails = () => {
                     handleAssignTicket
                   }
                   disabled={assigning}
-                  className="inline-flex min-h-[46px] items-center justify-center rounded-xl border border-slate-900 bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:border-slate-700 hover:bg-slate-800 hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="inline-flex min-h-[46px] items-center justify-center rounded-xl border border-slate-900 bg-slate-900 px-5 py-3 dark:border-white dark:bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:border-slate-700 hover:bg-slate-800 hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {assigning
                     ? "Updating..."
@@ -1348,13 +1348,13 @@ const TicketDetails = () => {
 <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-2">
   {/* Ticket Actions */}
   {showTicketActions && (
-    <div className="overflow-hidden rounded-2xl border border-amber-100 border-t-4 border-t-amber-500 bg-white shadow-sm transition-all duration-300 hover:border-amber-200 hover:border-t-amber-600 hover:shadow-md">
-      <div className="border-b border-amber-100 bg-amber-50/40 px-5 py-4 sm:px-6">
-        <h2 className="text-base font-bold text-slate-900 sm:text-lg">
+    <div className="group overflow-hidden rounded-2xl border border-amber-100 border-t-4 border-t-amber-500 bg-white text-slate-900 shadow-sm transition-all duration-300 hover:border-amber-200 hover:border-t-amber-600 hover:shadow-md dark:border-slate-600 dark:border-t-amber-400 dark:bg-[#404040] dark:text-white dark:hover:border-white dark:hover:border-t-white dark:hover:bg-white dark:hover:text-black">
+      <div className="border-b border-amber-100 bg-amber-50/40 px-5 py-4 sm:px-6 dark:border-slate-600 dark:bg-[#404040] dark:group-hover:bg-white">
+        <h2 className="text-base font-bold text-slate-900 sm:text-lg dark:text-white dark:group-hover:text-black">
           Ticket Actions
         </h2>
 
-        <p className="mt-1 text-xs leading-5 text-slate-500 sm:text-sm">
+        <p className="mt-1 text-xs leading-5 text-slate-500 sm:text-sm dark:text-slate-200 dark:group-hover:text-black">
           Manage ticket status, priority and lifecycle
           actions.
         </p>
@@ -1367,7 +1367,7 @@ const TicketDetails = () => {
           <div className="grid grid-cols-1 gap-5">
             {/* Status */}
             {canUpdateStatusValue && (
-              <div className="rounded-xl border border-cyan-100 bg-cyan-50/20 p-4 transition-all duration-300 hover:border-cyan-300 hover:bg-cyan-50/40 hover:shadow-sm">
+              <div className="group rounded-xl border border-cyan-100 bg-cyan-50/20 p-4 transition-all duration-300 hover:border-cyan-300 hover:bg-cyan-50/40 hover:shadow-sm dark:border-slate-500 dark:bg-[#404040] dark:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-black">
                 <TicketStatusControl
                   currentStatus={ticket.status}
                   user={user}
@@ -1379,10 +1379,10 @@ const TicketDetails = () => {
 
             {/* Priority */}
             {canUpdatePriorityValue && (
-              <div className="rounded-xl border border-cyan-100 bg-cyan-50/20 p-4 transition-all duration-300 hover:border-cyan-300 hover:bg-cyan-50/40 hover:shadow-sm">
+              <div className="group rounded-xl border border-cyan-100 bg-cyan-50/20 p-4 transition-all duration-300 hover:border-cyan-300 hover:bg-cyan-50/40 hover:shadow-sm dark:border-slate-500 dark:bg-[#404040] dark:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-black">
                 <label
                   htmlFor="ticket-priority"
-                  className="mb-2 block text-sm font-semibold text-slate-700"
+                  className="mb-2 block text-sm font-semibold text-slate-700 dark:text-white dark:group-hover:text-black"
                 >
                   Priority
                 </label>
@@ -1396,7 +1396,7 @@ const TicketDetails = () => {
                         .value as TicketPriority
                     )
                   }
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm font-medium text-slate-700 outline-none transition-all duration-300 hover:border-cyan-300 hover:shadow-sm focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm font-medium text-slate-700 outline-none transition-all duration-300 hover:border-cyan-300 hover:shadow-sm focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 dark:border-slate-500 dark:bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black dark:focus:bg-[#404040]"
                 >
                   <option value="low">
                     Low
@@ -1440,7 +1440,7 @@ const TicketDetails = () => {
               type="button"
               onClick={handleUpdateTicket}
               disabled={updating}
-              className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-xl border border-slate-900 bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:border-slate-700 hover:bg-slate-800 hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
+              className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-xl border border-slate-900 bg-slate-900 px-5 py-3 dark:border-white dark:bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:border-slate-700 hover:bg-slate-800 hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
             >
               {updating
                 ? "Updating..."
@@ -1450,14 +1450,14 @@ const TicketDetails = () => {
 
         {/* Cancel Ticket */}
         {canCancel && (
-          <div className="mt-6 border-t border-slate-200 pt-5 transition-colors duration-300 hover:border-slate-300">
+          <div className="mt-6 border-t border-slate-200 pt-5 transition-colors duration-300 hover:border-slate-300 dark:border-slate-600 dark:hover:border-slate-400">
             <div className="flex flex-col gap-4">
               <div>
-                <p className="text-sm font-semibold text-slate-800">
+                <p className="text-sm font-semibold text-slate-800 dark:text-white dark:group-hover:text-black">
                   Cancel this ticket
                 </p>
 
-                <p className="mt-1 text-sm leading-6 text-slate-500">
+                <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-200 dark:group-hover:text-black">
                   You can cancel this ticket while it is
                   still open.
                 </p>
@@ -1479,14 +1479,14 @@ const TicketDetails = () => {
 
         {/* Reopen Ticket */}
         {canReopen && (
-          <div className="mt-6 border-t border-slate-200 pt-5 transition-colors duration-300 hover:border-slate-300">
+          <div className="mt-6 border-t border-slate-200 pt-5 transition-colors duration-300 hover:border-slate-300 dark:border-slate-600 dark:hover:border-slate-400">
             <div className="flex flex-col gap-4">
               <div>
-                <p className="text-sm font-semibold text-slate-800">
+                <p className="text-sm font-semibold text-slate-800 dark:text-white dark:group-hover:text-black">
                   Reopen this ticket
                 </p>
 
-                <p className="mt-1 text-sm leading-6 text-slate-500">
+                <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-200 dark:group-hover:text-black">
                   This resolved ticket can be reopened
                   if further work is required.
                 </p>
@@ -1508,14 +1508,14 @@ const TicketDetails = () => {
 
         {/* Delete Ticket */}
         {canDeleteTicket(user) && (
-          <div className="mt-6 border-t border-slate-200 pt-5 transition-colors duration-300 hover:border-slate-300">
+          <div className="mt-6 border-t border-slate-200 pt-5 transition-colors duration-300 hover:border-slate-300 dark:border-slate-600 dark:hover:border-slate-400">
             <div className="flex flex-col gap-4">
               <div>
-                <p className="text-sm font-semibold text-slate-800">
+                <p className="text-sm font-semibold text-slate-800 dark:text-white dark:group-hover:text-black">
                   Delete this ticket
                 </p>
 
-                <p className="mt-1 text-sm leading-6 text-slate-500">
+                <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-200 dark:group-hover:text-black">
                   Deleting a ticket permanently removes
                   it from the system.
                 </p>
@@ -1541,7 +1541,7 @@ const TicketDetails = () => {
   )}
 
   {/* Resolution */}
-  <div className="overflow-hidden rounded-2xl border border-emerald-100 border-t-4 border-t-emerald-500 bg-white shadow-sm transition-all duration-300 hover:border-emerald-200 hover:border-t-emerald-600 hover:shadow-md">
+  <div className="group overflow-hidden rounded-2xl border border-emerald-100 border-t-4 border-t-emerald-500 bg-white shadow-sm transition-all duration-300 hover:border-emerald-200 hover:border-t-emerald-600 hover:shadow-md dark:border-slate-600 dark:border-t-emerald-400 dark:bg-[#404040] dark:hover:border-white dark:hover:border-t-white dark:hover:bg-white dark:hover:text-black">
     <ResolutionSection
       ticket={ticket}
       user={user}
@@ -1561,13 +1561,15 @@ const TicketDetails = () => {
       {/* ====================================================== */}
 
       <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-2">
-        <CommentSection
+        <div className="dark:bg-[#404040] dark:text-white">
+          <CommentSection
           ticket={ticket}
           user={user}
           users={users}
-        />
+          />
+        </div>
 
-        <div className="overflow-hidden rounded-2xl border border-violet-100 border-t-4 border-t-violet-500 bg-white shadow-sm transition-all duration-300 hover:border-violet-200 hover:border-t-violet-600 hover:shadow-md">
+        <div className="group overflow-hidden rounded-2xl border border-violet-100 border-t-4 border-t-violet-500 bg-white shadow-sm transition-all duration-300 hover:border-violet-200 hover:border-t-violet-600 hover:shadow-md dark:border-slate-600 dark:border-t-violet-400 dark:bg-[#404040] dark:hover:border-white dark:hover:border-t-white dark:hover:bg-white dark:hover:text-black">
           <TicketActivityTimeline
             ticketId={ticket.id}
             users={users}

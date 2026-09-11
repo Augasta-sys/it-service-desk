@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+
 import DashboardStatCard from "./DashboardStatCard";
 
 export interface DashboardStat {
@@ -19,7 +20,9 @@ export interface DashboardStat {
 
 interface DashboardStatsProps {
   stats: DashboardStat[];
-  onStatClick: (filter: string) => void;
+  onStatClick: (
+    filter: string
+  ) => void;
 }
 
 const DashboardStats = ({
@@ -46,7 +49,9 @@ const DashboardStats = ({
           icon={stat.icon}
           color={stat.color}
           description="View tickets"
-          onClick={() => onStatClick(stat.filter)}
+          onClick={() =>
+            onStatClick(stat.filter)
+          }
         />
       ))}
     </section>

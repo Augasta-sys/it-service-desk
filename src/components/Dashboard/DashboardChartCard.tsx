@@ -18,6 +18,7 @@ const DashboardChartCard = ({
   return (
     <section
       className={`
+        dashboard-chart-card
         group
         relative
         overflow-hidden
@@ -28,9 +29,12 @@ const DashboardChartCard = ({
         shadow-[0_3px_18px_rgba(15,23,42,0.05)]
         transition-all
         duration-300
-        hover:-translate-y-1
         hover:border-slate-300
-        hover:shadow-[0_12px_30px_rgba(15,23,42,0.09)]
+
+        dark:border-slate-700
+        dark:bg-slate-900
+        dark:shadow-[0_3px_18px_rgba(0,0,0,0.18)]
+
         ${className}
       `}
     >
@@ -49,6 +53,7 @@ const DashboardChartCard = ({
           transition-transform
           duration-500
           group-hover:scale-150
+          dark:opacity-[0.06]
         "
       />
 
@@ -64,16 +69,34 @@ const DashboardChartCard = ({
           border-slate-100
           px-4
           py-3
+          dark:border-slate-700
           sm:px-5
         "
       >
         <div className="min-w-0">
-          <h2 className="truncate text-sm font-bold text-slate-900 sm:text-base">
+          <h2
+            className="
+              truncate
+              text-sm
+              font-bold
+              text-slate-900
+              dark:text-white
+              sm:text-base
+            "
+          >
             {title}
           </h2>
 
           {subtitle && (
-            <p className="mt-0.5 text-[11px] text-slate-500 sm:text-xs">
+            <p
+              className="
+                mt-0.5
+                text-[11px]
+                text-slate-500
+                dark:text-slate-400
+                sm:text-xs
+              "
+            >
               {subtitle}
             </p>
           )}
@@ -87,7 +110,14 @@ const DashboardChartCard = ({
       </div>
 
       {/* Chart content */}
-      <div className="relative p-3 sm:p-4 lg:p-5">
+      <div
+        className="
+          relative
+          p-3
+          sm:p-4
+          lg:p-5
+        "
+      >
         {children}
       </div>
 
@@ -108,6 +138,7 @@ const DashboardChartCard = ({
           transition-opacity
           duration-300
           group-hover:opacity-100
+          dark:via-blue-500
         "
       />
     </section>

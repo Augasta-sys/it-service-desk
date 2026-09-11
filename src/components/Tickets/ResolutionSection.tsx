@@ -144,25 +144,25 @@ const ResolutionSection = ({
   };
 
   return (
-   <section className="min-h-[520px] rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+    <section className="group min-h-[520px] rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 dark:border-slate-600 dark:bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black">
       <div className="mb-5 flex items-center gap-2">
         <CheckCircle
           size={20}
           className="text-green-600"
         />
 
-        <h2 className="text-lg font-semibold text-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white dark:group-hover:text-black">
           Resolution
         </h2>
       </div>
 
       {ticket.resolutionDate && (
-        <div className="mb-5 rounded-lg bg-green-50 px-4 py-3">
-          <p className="text-sm font-medium text-green-800">
+        <div className="mb-5 rounded-lg bg-green-50 px-4 py-3 dark:bg-green-900/30 dark:group-hover:bg-green-50">
+          <p className="text-sm font-medium text-green-800 dark:text-green-200 dark:group-hover:text-green-800">
             Resolved on
           </p>
 
-          <p className="mt-1 text-sm text-green-700">
+          <p className="mt-1 text-sm text-green-700 dark:text-green-300 dark:group-hover:text-green-700">
             {ticket.resolutionDate}
           </p>
         </div>
@@ -176,7 +176,7 @@ const ResolutionSection = ({
           <div>
             <label
               htmlFor="resolution"
-              className="mb-2 block text-sm font-medium text-gray-700"
+              className="mb-2 block text-sm font-medium text-gray-700 dark:text-white dark:group-hover:text-black"
             >
               Resolution
             </label>
@@ -190,14 +190,14 @@ const ResolutionSection = ({
               placeholder="Describe how the issue was resolved..."
               rows={4}
               disabled={submitting}
-              className="w-full resize-none rounded-lg border border-gray-300 px-3 py-2.5 text-sm outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-100 disabled:bg-gray-100"
+              className="w-full resize-none rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-green-500 focus:ring-2 focus:ring-green-100 disabled:bg-gray-100 dark:border-slate-500 dark:bg-[#404040] dark:text-white dark:placeholder:text-slate-300 dark:focus:bg-[#404040] dark:group-hover:bg-white dark:group-hover:text-black dark:group-hover:placeholder:text-slate-500"
             />
           </div>
 
           <div>
             <label
               htmlFor="resolution-notes"
-              className="mb-2 block text-sm font-medium text-gray-700"
+              className="mb-2 block text-sm font-medium text-gray-700 dark:text-white dark:group-hover:text-black"
             >
               Resolution Notes
             </label>
@@ -211,7 +211,7 @@ const ResolutionSection = ({
               placeholder="Add any additional resolution notes..."
               rows={4}
               disabled={submitting}
-              className="w-full resize-none rounded-lg border border-gray-300 px-3 py-2.5 text-sm outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-100 disabled:bg-gray-100"
+              className="w-full resize-none rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-green-500 focus:ring-2 focus:ring-green-100 disabled:bg-gray-100 dark:border-slate-500 dark:bg-[#404040] dark:text-white dark:placeholder:text-slate-300 dark:focus:bg-[#404040] dark:group-hover:bg-white dark:group-hover:text-black dark:group-hover:placeholder:text-slate-500"
             />
           </div>
 
@@ -248,22 +248,22 @@ const ResolutionSection = ({
       ) : (
         <div className="space-y-4">
           <div>
-            <p className="mb-1 text-sm font-medium text-gray-500">
+            <p className="mb-1 text-sm font-medium text-gray-500 dark:text-white dark:group-hover:text-black">
               Resolution
             </p>
 
-            <p className="text-sm leading-6 text-gray-700">
+            <p className="text-sm leading-6 text-gray-700 dark:text-white dark:group-hover:text-black">
               {ticket.resolution ||
                 "No resolution added yet."}
             </p>
           </div>
 
           <div>
-            <p className="mb-1 text-sm font-medium text-gray-500">
+            <p className="mb-1 text-sm font-medium text-gray-500 dark:text-white dark:group-hover:text-black">
               Resolution Notes
             </p>
 
-            <p className="text-sm leading-6 text-gray-700">
+            <p className="text-sm leading-6 text-gray-700 dark:text-white dark:group-hover:text-black">
               {ticket.resolutionNotes ||
                 "No resolution notes added yet."}
             </p>

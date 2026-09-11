@@ -51,6 +51,13 @@ const TicketFilters = ({
     category !== "all";
 
   const selectClassName = `
+    dark:!bg-[#404040]
+    dark:text-white
+    dark:border-slate-600
+    dark:hover:!bg-white
+    dark:hover:text-black
+    dark:focus:!bg-[#404040]
+    dark:focus:text-white
     w-full
     appearance-none
     rounded-xl
@@ -74,12 +81,12 @@ const TicketFilters = ({
   `;
 
   return (
-    <div className="w-full">
+    <div className="w-full rounded-xl dark:bg-[#404040] dark:text-white">
 
       {/* =====================================================
           FILTER HEADER
       ====================================================== */}
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex items-center justify-between dark:text-white">
 
         <div className="flex items-center gap-2">
           <div
@@ -98,11 +105,11 @@ const TicketFilters = ({
           </div>
 
           <div>
-            <p className="text-sm font-bold text-slate-800">
+            <p className="text-sm font-bold text-slate-800 dark:text-white">
               Ticket Filters
             </p>
 
-            <p className="hidden text-xs text-slate-400 sm:block">
+            <p className="hidden text-xs text-slate-400 dark:text-slate-200 sm:block">
               Filter and organize tickets
             </p>
           </div>
@@ -119,6 +126,7 @@ const TicketFilters = ({
               rounded-lg
               border border-slate-200
               bg-white
+              dark:!bg-[#404040] dark:text-white dark:border-slate-600
               px-3 py-2
               text-xs
               font-semibold

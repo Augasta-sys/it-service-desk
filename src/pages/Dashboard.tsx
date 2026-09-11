@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+
 import {
   AlertCircle,
   CheckCircle2,
@@ -9,9 +10,11 @@ import {
   UserX,
   XCircle,
 } from "lucide-react";
+
 import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../hooks/useAuth";
+
 import { getTickets } from "../services/ticketService";
 
 import type {
@@ -32,11 +35,15 @@ import DashboardHeader from "../components/Dashboard/DashboardHeader";
 
 const Dashboard = () => {
   const { user } = useAuth();
+
   const navigate = useNavigate();
 
   const [tickets, setTickets] = useState<Ticket[]>([]);
+
   const [loading, setLoading] = useState(true);
+
   const [refreshing, setRefreshing] = useState(false);
+
   const [error, setError] = useState("");
 
   /*
@@ -116,13 +123,15 @@ const Dashboard = () => {
 
     if (user.role === "support_agent") {
       return tickets.filter(
-        (ticket) => ticket.assignedAgent === user.id
+        (ticket) =>
+          ticket.assignedAgent === user.id
       );
     }
 
     if (user.role === "employee") {
       return tickets.filter(
-        (ticket) => ticket.createdBy === user.id
+        (ticket) =>
+          ticket.createdBy === user.id
       );
     }
 
@@ -136,7 +145,8 @@ const Dashboard = () => {
     status: TicketStatus
   ): number => {
     return accessibleTickets.filter(
-      (ticket) => ticket.status === status
+      (ticket) =>
+        ticket.status === status
     ).length;
   };
 
@@ -147,7 +157,8 @@ const Dashboard = () => {
     priority: TicketPriority
   ): number => {
     return accessibleTickets.filter(
-      (ticket) => ticket.priority === priority
+      (ticket) =>
+        ticket.priority === priority
     ).length;
   };
 
@@ -157,7 +168,9 @@ const Dashboard = () => {
    * Employees use My Tickets.
    * Admins and Support Agents use Tickets.
    */
-  const handleStatClick = (filter: string) => {
+  const handleStatClick = (
+    filter: string
+  ) => {
     if (user?.role === "employee") {
       navigate(
         filter
@@ -202,7 +215,9 @@ const Dashboard = () => {
     },
     {
       title: "In Progress Tickets",
-      value: countByStatus("in_progress"),
+      value: countByStatus(
+        "in_progress"
+      ),
       icon: Clock3,
       color: "cyan",
       filter: "status=in_progress",
@@ -238,7 +253,8 @@ const Dashboard = () => {
     {
       title: "Unassigned Tickets",
       value: accessibleTickets.filter(
-        (ticket) => !ticket.assignedAgent
+        (ticket) =>
+          !ticket.assignedAgent
       ).length,
       icon: UserX,
       color: "orange",
@@ -268,7 +284,9 @@ const Dashboard = () => {
     },
     {
       title: "In Progress Tickets",
-      value: countByStatus("in_progress"),
+      value: countByStatus(
+        "in_progress"
+      ),
       icon: Clock3,
       color: "cyan",
       filter: "status=in_progress",
@@ -316,7 +334,9 @@ const Dashboard = () => {
     },
     {
       title: "In Progress Tickets",
-      value: countByStatus("in_progress"),
+      value: countByStatus(
+        "in_progress"
+      ),
       icon: Clock3,
       color: "cyan",
       filter: "status=in_progress",
@@ -339,26 +359,26 @@ const Dashboard = () => {
 
   /*
    * Select dashboard cards based on role
-   *
-   * This is intentionally not wrapped in useMemo.
-   * The arrays above already depend on accessibleTickets,
-   * so there is no need for a second memoization layer.
    */
-  const stats: DashboardStat[] = (() => {
-    if (!user) {
-      return [];
-    }
+  const stats: DashboardStat[] =
+    (() => {
+      if (!user) {
+        return [];
+      }
 
-    if (user.role === "admin") {
-      return adminStats;
-    }
+      if (user.role === "admin") {
+        return adminStats;
+      }
 
-    if (user.role === "support_agent") {
-      return supportAgentStats;
-    }
+      if (
+        user.role ===
+        "support_agent"
+      ) {
+        return supportAgentStats;
+      }
 
-    return employeeStats;
-  })();
+      return employeeStats;
+    })();
 
   /*
    * Loading state
@@ -367,31 +387,64 @@ const Dashboard = () => {
     return (
       <div className="space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+          <h1
+            className="
+              text-2xl
+              font-bold
+              text-slate-900
+              transition-colors
+              duration-300
+              dark:text-slate-100
+              sm:text-3xl
+            "
+          >
             Dashboard
           </h1>
 
-          <p className="mt-1 text-sm text-slate-500 sm:text-base">
-            Loading your service desk overview...
+          <p
+            className="
+              mt-1
+              text-sm
+              text-slate-500
+              transition-colors
+              duration-300
+              dark:text-slate-400
+              sm:text-base
+            "
+          >
+            Loading your service desk
+            overview...
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {Array.from({ length: 9 }).map(
-            (_, index) => (
-              <div
-                key={index}
-                className="
-                  h-32
-                  animate-pulse
-                  rounded-2xl
-                  border
-                  border-slate-200
-                  bg-white
-                "
-              />
-            )
-          )}
+        <div
+          className="
+            grid
+            grid-cols-1
+            gap-4
+            sm:grid-cols-2
+            xl:grid-cols-3
+          "
+        >
+          {Array.from({
+            length: 9,
+          }).map((_, index) => (
+            <div
+              key={index}
+              className="
+                h-32
+                animate-pulse
+                rounded-2xl
+                border
+                border-slate-200
+                bg-white
+                transition-colors
+                duration-300
+                dark:border-slate-700
+                dark:bg-slate-800
+              "
+            />
+          ))}
         </div>
       </div>
     );
@@ -404,17 +457,56 @@ const Dashboard = () => {
     return (
       <div className="space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+          <h1
+            className="
+              text-2xl
+              font-bold
+              text-slate-900
+              transition-colors
+              duration-300
+              dark:text-slate-100
+              sm:text-3xl
+            "
+          >
             Dashboard
           </h1>
 
-          <p className="mt-1 text-sm text-slate-500">
-            Welcome back, {user?.fullName}.
+          <p
+            className="
+              mt-1
+              text-sm
+              text-slate-500
+              transition-colors
+              duration-300
+              dark:text-slate-400
+            "
+          >
+            Welcome back,{" "}
+            {user?.fullName}.
           </p>
         </div>
 
-        <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
-          <p className="text-sm font-medium text-red-700">
+        <div
+          className="
+            rounded-2xl
+            border
+            border-red-200
+            bg-red-50
+            p-5
+            transition-colors
+            duration-300
+            dark:border-red-900/60
+            dark:bg-red-950/40
+          "
+        >
+          <p
+            className="
+              text-sm
+              font-medium
+              text-red-700
+              dark:text-red-300
+            "
+          >
             {error}
           </p>
         </div>
@@ -427,6 +519,7 @@ const Dashboard = () => {
    */
   return (
     <div className="space-y-6">
+      {/* Dashboard Header */}
       <DashboardHeader
         user={user}
         onRefresh={handleRefresh}
@@ -436,23 +529,53 @@ const Dashboard = () => {
         }
       />
 
-      <DashboardStats
-        stats={stats}
-        onStatClick={handleStatClick}
-      />
+      {/* Dashboard Statistics Cards */}
+      <section
+        className="
+          dashboard-stats-section
+          rounded-2xl
+          transition-colors
+          duration-300
+        "
+      >
+        <DashboardStats
+          stats={stats}
+          onStatClick={handleStatClick}
+        />
+      </section>
 
-      <DashboardOverview
-        tickets={accessibleTickets}
-      />
+      {/* Ticket Trend / Ticket By Status */}
+      <section
+        className="
+          dashboard-overview-section
+          rounded-2xl
+          transition-colors
+          duration-300
+        "
+      >
+        <DashboardOverview
+          tickets={accessibleTickets}
+        />
+      </section>
 
-      <RecentTickets
-        tickets={accessibleTickets}
-        viewAllPath={
-          user?.role === "employee"
-            ? "/my-tickets"
-            : "/tickets"
-        }
-      />
+      {/* Recent Tickets */}
+      <section
+        className="
+          dashboard-recent-section
+          rounded-2xl
+          transition-colors
+          duration-300
+        "
+      >
+        <RecentTickets
+          tickets={accessibleTickets}
+          viewAllPath={
+            user?.role === "employee"
+              ? "/my-tickets"
+              : "/tickets"
+          }
+        />
+      </section>
     </div>
   );
 };

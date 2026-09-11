@@ -729,7 +729,7 @@ const Profile = () => {
                         onClick={() =>
                           setSelectedMember(member)
                         }
-                        className="mt-4 flex w-full items-center justify-between rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700 transition-all duration-200 hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700 active:scale-[0.98]"
+                        className="mt-4 flex w-full items-center justify-between rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700 transition-all duration-200 hover:border-indigo-200 hover:bg-indigo-50 hover:text-black active:scale-[0.98]"
                       >
                         View Profile
 

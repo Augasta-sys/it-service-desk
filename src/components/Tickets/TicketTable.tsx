@@ -62,6 +62,7 @@ const TicketTable = ({
     return (
       <div
         className="
+          dark:bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black
           flex
           min-h-52
           items-center
@@ -110,11 +111,11 @@ const TicketTable = ({
             />
           </div>
 
-          <p className="text-sm font-semibold text-slate-700">
+          <p className="text-sm font-semibold text-slate-700 dark:text-white">
             No tickets found
           </p>
 
-          <p className="mt-1 max-w-xs text-xs leading-5 text-slate-400">
+          <p className="mt-1 max-w-xs text-xs leading-5 text-slate-400 dark:text-slate-300">
             There are currently no tickets to display.
           </p>
         </div>
@@ -123,18 +124,20 @@ const TicketTable = ({
   }
 
   return (
-    <div className="w-full">
+    <div className="ticket-list-container w-full bg-white dark:bg-[#404040] dark:text-white">
       {/* =====================================================
           TABLE HEADER
       ====================================================== */}
       <div
         className="
+          ticket-list-header
           flex
           flex-col
           gap-3
           border-b
           border-slate-100
           bg-white
+          dark:bg-[#404040] dark:text-white
           px-4
           py-4
           sm:flex-row
@@ -172,11 +175,11 @@ const TicketTable = ({
           </div>
 
           <div>
-            <p className="text-sm font-bold text-slate-800 sm:text-base">
+            <p className="text-sm font-bold text-slate-800 dark:text-white sm:text-base">
               Ticket List
             </p>
 
-            <p className="text-[11px] text-slate-400">
+            <p className="text-[11px] text-slate-400 dark:text-slate-300">
               {tickets.length}{" "}
               {tickets.length === 1
                 ? "ticket"
@@ -210,13 +213,14 @@ const TicketTable = ({
           MOBILE TICKET CARDS
           Visible below md
       ====================================================== */}
-      <div className="block space-y-3 bg-slate-50/50 p-3 sm:p-4 md:hidden">
+      <div className="block space-y-3 bg-slate-50/50 p-3 sm:p-4 md:hidden dark:bg-[#404040]">
         {tickets.map((ticket) => (
           <article
             key={ticket.id}
             className="
               group
               relative
+              dark:bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black
               overflow-hidden
               rounded-2xl
               border
@@ -269,6 +273,7 @@ const TicketTable = ({
                       border-slate-200
                       bg-slate-50
                       text-slate-500
+                      dark:bg-slate-800 dark:text-slate-200 dark:group-hover:bg-blue-50 dark:group-hover:text-blue-600
                       shadow-sm
                       transition-all
                       duration-300
@@ -283,12 +288,14 @@ const TicketTable = ({
                   <div className="min-w-0">
                     <p
                       className="
+                        ticket-id
                         truncate
                         text-[10px]
                         font-bold
                         uppercase
                         tracking-wide
                         text-indigo-500
+                        dark:group-hover:text-black
                       "
                       title={ticket.id}
                     >
@@ -297,6 +304,7 @@ const TicketTable = ({
 
                     <h3
                       className="
+                        ticket-subject
                         mt-1
                         break-words
                         text-sm
@@ -304,6 +312,7 @@ const TicketTable = ({
                         leading-5
                         text-slate-900
                         transition-colors
+                        dark:group-hover:text-black
                         duration-200
                         group-hover:text-indigo-700
                       "
@@ -331,6 +340,7 @@ const TicketTable = ({
                     border-slate-200
                     bg-white
                     text-slate-500
+                    dark:bg-slate-800 dark:text-slate-200 dark:group-hover:bg-white dark:group-hover:text-black
                     shadow-sm
                     transition-all
                     duration-200
@@ -393,12 +403,12 @@ const TicketTable = ({
                       className="shrink-0 text-blue-500"
                     />
 
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400 dark:text-slate-300 dark:group-hover:text-slate-600">
                       Category
                     </span>
                   </div>
 
-                  <p className="mt-1.5 break-words text-xs font-semibold text-slate-700">
+                  <p className="mt-1.5 break-words text-xs font-semibold text-slate-700 dark:group-hover:text-black">
                     {getCategoryName(
                       ticket.category,
                     )}
@@ -425,12 +435,12 @@ const TicketTable = ({
                       className="shrink-0 text-violet-500"
                     />
 
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400 dark:text-slate-300 dark:group-hover:text-slate-600">
                       Created By
                     </span>
                   </div>
 
-                  <p className="mt-1.5 break-words text-xs font-semibold text-slate-700">
+                  <p className="mt-1.5 break-words text-xs font-semibold text-slate-700 dark:group-hover:text-black">
                     {getUserName(
                       ticket.createdBy,
                     )}
@@ -457,13 +467,13 @@ const TicketTable = ({
                       className="shrink-0 text-indigo-500"
                     />
 
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400 dark:text-slate-300 dark:group-hover:text-slate-600">
                       Assigned Agent
                     </span>
                   </div>
 
                   {ticket.assignedAgent ? (
-                    <p className="mt-1.5 break-words text-xs font-semibold text-slate-700">
+                    <p className="mt-1.5 break-words text-xs font-semibold text-slate-700 dark:group-hover:text-black">
                       {getUserName(
                         ticket.assignedAgent,
                       )}
@@ -509,12 +519,12 @@ const TicketTable = ({
                       className="shrink-0 text-emerald-500"
                     />
 
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400 dark:text-slate-300 dark:group-hover:text-slate-600">
                       Created Date
                     </span>
                   </div>
 
-                  <p className="mt-1.5 text-xs font-semibold text-slate-700">
+                  <p className="mt-1.5 text-xs font-semibold text-slate-700 dark:group-hover:text-black">
                     {ticket.createdDate}
                   </p>
                 </div>
@@ -599,6 +609,7 @@ const TicketTable = ({
               border-b
               border-slate-200
               bg-slate-50/90
+              dark:bg-[#404040] dark:text-white
             "
           >
             <tr>
@@ -622,6 +633,7 @@ const TicketTable = ({
                     uppercase
                     tracking-wider
                     text-slate-500
+                    dark:text-slate-300
                     ${index === 0 ? "pl-3 sm:pl-4" : ""}
                     ${index === 7 ? "pr-3 text-right sm:pr-4" : ""}
                   `}
@@ -638,8 +650,10 @@ const TicketTable = ({
               <tr
                 key={ticket.id}
                 className="
+                  ticket-table-row
                   group
                   bg-white
+                  dark:bg-[#404040] dark:text-white dark:hover:bg-white dark:hover:text-black
                   transition-all
                   duration-300
                   hover:bg-slate-50
@@ -650,6 +664,7 @@ const TicketTable = ({
                   <div className="flex min-w-0 items-center gap-2">
                     <div
                       className="
+                        ticket-row-icon
                         flex
                         h-8
                         w-8
@@ -661,6 +676,7 @@ const TicketTable = ({
                         border-slate-100
                         bg-slate-50
                         text-slate-400
+                    dark:group-hover:text-slate-600
                         transition-all
                         duration-300
                         group-hover:border-indigo-100
@@ -674,10 +690,12 @@ const TicketTable = ({
                     <div className="min-w-0">
                       <p
                         className="
+                          ticket-id
                           truncate
                           text-[9px]
                           font-semibold
                           text-slate-400
+                    dark:group-hover:text-slate-600
                           transition-colors
                           duration-300
                           group-hover:text-indigo-500
@@ -689,6 +707,7 @@ const TicketTable = ({
 
                       <p
                         className="
+                          ticket-subject
                           mt-0.5
                           break-words
                           text-[11px]
@@ -721,7 +740,7 @@ const TicketTable = ({
                       "
                     />
 
-                    <span className="break-words text-[10px] font-medium leading-4 text-slate-600">
+                    <span className="break-words text-[10px] font-medium leading-4 text-slate-600 dark:group-hover:text-black">
                       {getCategoryName(
                         ticket.category,
                       )}
@@ -786,7 +805,7 @@ const TicketTable = ({
                       <UserRound size={12} />
                     </div>
 
-                    <span className="min-w-0 break-words text-[10px] font-medium leading-4 text-slate-600">
+                    <span className="min-w-0 break-words text-[10px] font-medium leading-4 text-slate-600 dark:group-hover:text-black">
                       {getUserName(
                         ticket.createdBy,
                       )}
@@ -818,7 +837,7 @@ const TicketTable = ({
                         <UserRound size={12} />
                       </div>
 
-                      <span className="min-w-0 break-words text-[10px] font-medium leading-4 text-slate-600">
+                      <span className="min-w-0 break-words text-[10px] font-medium leading-4 text-slate-600 dark:group-hover:text-black">
                         {getUserName(
                           ticket.assignedAgent,
                         )}
@@ -861,10 +880,11 @@ const TicketTable = ({
                         transition-colors
                         duration-300
                         group-hover:text-indigo-500
+                        dark:group-hover:text-black
                       "
                     />
 
-                    <span className="break-words text-[10px] font-medium leading-4 text-slate-600">
+                    <span className="break-words text-[10px] font-medium leading-4 text-slate-600 dark:group-hover:text-black">
                       {ticket.createdDate}
                     </span>
                   </div>

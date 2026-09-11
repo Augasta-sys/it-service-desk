@@ -24,46 +24,14 @@ interface ChartItem {
 }
 
 const STATUS_DATA: ChartItem[] = [
-  {
-    label: "Open",
-    value: 0,
-    color: "#3b82f6",
-  },
-  {
-    label: "Assigned",
-    value: 0,
-    color: "#8b5cf6",
-  },
-  {
-    label: "In Progress",
-    value: 0,
-    color: "#06b6d4",
-  },
-  {
-    label: "Pending",
-    value: 0,
-    color: "#f59e0b",
-  },
-  {
-    label: "Resolved",
-    value: 0,
-    color: "#22c55e",
-  },
-  {
-    label: "Closed",
-    value: 0,
-    color: "#64748b",
-  },
-  {
-    label: "Cancelled",
-    value: 0,
-    color: "#ef4444",
-  },
-  {
-    label: "Reopened",
-    value: 0,
-    color: "#ec4899",
-  },
+  { label: "Open", value: 0, color: "#3b82f6" },
+  { label: "Assigned", value: 0, color: "#8b5cf6" },
+  { label: "In Progress", value: 0, color: "#06b6d4" },
+  { label: "Pending", value: 0, color: "#f59e0b" },
+  { label: "Resolved", value: 0, color: "#22c55e" },
+  { label: "Closed", value: 0, color: "#64748b" },
+  { label: "Cancelled", value: 0, color: "#ef4444" },
+  { label: "Reopened", value: 0, color: "#ec4899" },
 ];
 
 const STATUS_LABELS: Record<Ticket["status"], string> = {
@@ -78,26 +46,10 @@ const STATUS_LABELS: Record<Ticket["status"], string> = {
 };
 
 const PRIORITY_DATA: ChartItem[] = [
-  {
-    label: "Low",
-    value: 0,
-    color: "#10b981",
-  },
-  {
-    label: "Medium",
-    value: 0,
-    color: "#f59e0b",
-  },
-  {
-    label: "High",
-    value: 0,
-    color: "#f97316",
-  },
-  {
-    label: "Critical",
-    value: 0,
-    color: "#ef4444",
-  },
+  { label: "Low", value: 0, color: "#10b981" },
+  { label: "Medium", value: 0, color: "#f59e0b" },
+  { label: "High", value: 0, color: "#f97316" },
+  { label: "Critical", value: 0, color: "#ef4444" },
 ];
 
 const PRIORITY_LABELS: Record<Ticket["priority"], string> = {
@@ -110,12 +62,6 @@ const PRIORITY_LABELS: Record<Ticket["priority"], string> = {
 const DashboardOverview = ({
   tickets,
 }: DashboardOverviewProps) => {
-  /*
-   * ==========================================================
-   * STATUS DATA
-   * ==========================================================
-   */
-
   const statusData = useMemo(() => {
     return STATUS_DATA
       .map((item) => ({
@@ -128,12 +74,6 @@ const DashboardOverview = ({
       .filter((item) => item.value > 0);
   }, [tickets]);
 
-  /*
-   * ==========================================================
-   * PRIORITY DATA
-   * ==========================================================
-   */
-
   const priorityData = useMemo(() => {
     return PRIORITY_DATA
       .map((item) => ({
@@ -145,12 +85,6 @@ const DashboardOverview = ({
       }))
       .filter((item) => item.value > 0);
   }, [tickets]);
-
-  /*
-   * ==========================================================
-   * CATEGORY DATA
-   * ==========================================================
-   */
 
   const categoryData = useMemo(() => {
     const categoryMap: Record<string, number> = {};
@@ -183,12 +117,6 @@ const DashboardOverview = ({
       }))
       .sort((a, b) => b.value - a.value);
   }, [tickets]);
-
-  /*
-   * ==========================================================
-   * LAST 7 DAYS
-   * ==========================================================
-   */
 
   const dailyTicketData = useMemo(() => {
     const today = new Date();
@@ -231,21 +159,12 @@ const DashboardOverview = ({
     });
   }, [tickets]);
 
-  /*
-   * ==========================================================
-   * LINE CHART DATA
-   * ==========================================================
-   */
-
   const lineChartData = useMemo(() => {
     const values = dailyTicketData.map(
       (item) => item.value
     );
 
-    const maxValue = Math.max(
-      ...values,
-      1
-    );
+    const maxValue = Math.max(...values, 1);
 
     const width = 700;
     const height = 240;
@@ -309,12 +228,6 @@ const DashboardOverview = ({
     };
   }, [dailyTicketData]);
 
-  /*
-   * ==========================================================
-   * OVERALL PERFORMANCE
-   * ==========================================================
-   */
-
   const resolvedTickets = useMemo(
     () =>
       tickets.filter(
@@ -343,30 +256,54 @@ const DashboardOverview = ({
 
   return (
     <section className="space-y-5">
-      {/* ======================================================
-          SECTION HEADER
-          ====================================================== */}
-
+      {/* SECTION HEADER */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 text-white">
+            <div
+              className="
+                flex h-8 w-8 items-center justify-center
+                rounded-lg bg-slate-900 text-white
+                dark:bg-slate-700
+              "
+            >
               <BarChart3 size={16} />
             </div>
 
-            <h2 className="text-base font-bold text-slate-900 sm:text-lg">
+            <h2
+              className="
+                text-base font-bold text-slate-300
+                dark:text-white
+                sm:text-lg
+              "
+            >
               Analytics Overview
             </h2>
           </div>
 
-          <p className="mt-1 text-xs text-slate-500 sm:text-sm">
+          <p
+            className="
+              mt-1 text-xs text-slate-500
+              dark:text-slate-100
+              sm:text-sm
+            "
+          >
             Monitor ticket activity, workload and service
             desk performance.
           </p>
         </div>
 
         <div className="flex flex-wrap gap-2">
-          <div className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 shadow-sm">
+          <div
+            className="
+              inline-flex items-center gap-2 rounded-lg
+              border border-slate-200 bg-white
+              px-3 py-2 text-xs font-semibold text-slate-600
+              shadow-sm
+              dark:border-slate-700 dark:bg-slate-900
+              dark:text-slate-300
+            "
+          >
             <CircleDot
               size={13}
               className="text-blue-500"
@@ -374,7 +311,16 @@ const DashboardOverview = ({
             {tickets.length} Total
           </div>
 
-          <div className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 shadow-sm">
+          <div
+            className="
+              inline-flex items-center gap-2 rounded-lg
+              border border-slate-200 bg-white
+              px-3 py-2 text-xs font-semibold text-slate-600
+              shadow-sm
+              dark:border-slate-700 dark:bg-slate-900
+              dark:text-slate-300
+            "
+          >
             <CheckCircle2
               size={13}
               className="text-emerald-500"
@@ -384,13 +330,8 @@ const DashboardOverview = ({
         </div>
       </div>
 
-      {/* ======================================================
-          TREND + STATUS
-          ====================================================== */}
-
+      {/* TREND + STATUS */}
       <div className="grid min-w-0 grid-cols-1 gap-4 xl:grid-cols-[1.55fr_1fr]">
-        {/* Ticket Trend */}
-
         <DashboardChartCard
           title="Ticket Trend"
           subtitle="Tickets created during the last 7 days"
@@ -404,8 +345,6 @@ const DashboardOverview = ({
           />
         </DashboardChartCard>
 
-        {/* Status Donut */}
-
         <DashboardChartCard
           title="Tickets by Status"
           subtitle="Current ticket status distribution"
@@ -414,21 +353,14 @@ const DashboardOverview = ({
         </DashboardChartCard>
       </div>
 
-      {/* ======================================================
-          CATEGORY + PRIORITY
-          ====================================================== */}
-
+      {/* CATEGORY + PRIORITY */}
       <div className="grid min-w-0 grid-cols-1 gap-4 xl:grid-cols-2">
-        {/* Category Bar */}
-
         <DashboardChartCard
           title="Tickets by Category"
           subtitle="Tickets grouped by service category"
         >
           <CategoryBarChart data={categoryData} />
         </DashboardChartCard>
-
-        {/* Priority Pie */}
 
         <DashboardChartCard
           title="Priority Distribution"
@@ -438,18 +370,19 @@ const DashboardOverview = ({
         </DashboardChartCard>
       </div>
 
-      {/* ======================================================
-          ACTIVITY + PERFORMANCE
-          ====================================================== */}
-
+      {/* ACTIVITY + PERFORMANCE */}
       <div className="grid min-w-0 grid-cols-1 gap-4 xl:grid-cols-[1.5fr_1fr]">
-        {/* Histogram */}
-
         <DashboardChartCard
           title="Weekly Ticket Activity"
           subtitle="Daily ticket creation volume"
           action={
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-600">
+            <div
+              className="
+                flex h-8 w-8 items-center justify-center
+                rounded-lg bg-slate-100 text-slate-600
+                dark:bg-slate-800 dark:text-slate-300
+              "
+            >
               <Activity size={15} />
             </div>
           }
@@ -458,8 +391,6 @@ const DashboardOverview = ({
             data={dailyTicketData}
           />
         </DashboardChartCard>
-
-        {/* Performance */}
 
         <DashboardChartCard
           title="Service Desk Health"
@@ -478,7 +409,7 @@ const DashboardOverview = ({
 };
 
 /* ============================================================
-   TICKET TREND — LINE + AREA CHART
+   TICKET TREND
    ============================================================ */
 
 interface TicketTrendChartProps {
@@ -508,15 +439,26 @@ const TicketTrendChart = ({
     return (
       <div className="flex min-h-[260px] items-center justify-center">
         <div className="text-center">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-400">
+          <div
+            className="
+              mx-auto flex h-14 w-14 items-center justify-center
+              rounded-2xl bg-slate-100 text-slate-400
+              dark:bg-slate-800 dark:text-slate-500
+            "
+          >
             <TrendingUp size={24} />
           </div>
 
-          <p className="mt-3 text-sm font-semibold text-slate-500">
+          <p
+            className="
+              mt-3 text-sm font-semibold
+              text-slate-500 dark:text-slate-400
+            "
+          >
             No ticket activity yet
           </p>
 
-          <p className="mt-1 text-xs text-slate-400">
+          <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">
             New tickets will appear in the trend chart.
           </p>
         </div>
@@ -531,8 +473,6 @@ const TicketTrendChart = ({
         className="h-[220px] w-full sm:h-[260px]"
         preserveAspectRatio="none"
       >
-        {/* Grid lines */}
-
         {[0, 1, 2, 3].map((line) => {
           const y = 30 + line * 60;
 
@@ -550,16 +490,12 @@ const TicketTrendChart = ({
           );
         })}
 
-        {/* Area */}
-
         <path
           d={areaPath}
           fill="#3b82f6"
           opacity="0.08"
           className="transition-all duration-500"
         />
-
-        {/* Line */}
 
         <path
           d={linePath}
@@ -570,8 +506,6 @@ const TicketTrendChart = ({
           strokeLinejoin="round"
           className="transition-all duration-500"
         />
-
-        {/* Points */}
 
         {points.map((point, index) => (
           <g key={index}>
@@ -602,35 +536,45 @@ const TicketTrendChart = ({
         ))}
       </svg>
 
-      {/* X-axis */}
-
       <div className="grid grid-cols-7 gap-1 px-2">
         {data.map((item) => (
           <div
             key={`${item.label}-${item.shortDate}`}
             className="text-center"
           >
-            <p className="text-[10px] font-bold text-slate-500 sm:text-xs">
+            <p
+              className="
+                text-[10px] font-bold text-slate-500
+                dark:text-slate-400
+                sm:text-xs
+              "
+            >
               {item.label}
             </p>
 
-            <p className="mt-0.5 text-[9px] text-slate-400">
+            <p className="mt-0.5 text-[9px] text-slate-400 dark:text-slate-500">
               {item.shortDate}
             </p>
           </div>
         ))}
       </div>
 
-      <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-3">
+      <div
+        className="
+          mt-3 flex items-center justify-between
+          border-t border-slate-100 pt-3
+          dark:border-slate-700
+        "
+      >
         <div className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-blue-500" />
 
-          <span className="text-[11px] font-medium text-slate-500">
+          <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
             Created tickets
           </span>
         </div>
 
-        <span className="text-[11px] font-semibold text-slate-400">
+        <span className="text-[11px] font-semibold text-slate-400 dark:text-slate-500">
           Peak: {maxValue}
         </span>
       </div>
@@ -659,13 +603,19 @@ const StatusDonutChart = ({
     return (
       <div className="flex min-h-[300px] items-center justify-center">
         <div className="text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-slate-100">
-            <span className="text-2xl font-bold text-slate-400">
+          <div
+            className="
+              mx-auto flex h-16 w-16 items-center justify-center
+              rounded-full bg-slate-100
+              dark:bg-slate-800
+            "
+          >
+            <span className="text-2xl font-bold text-slate-400 dark:text-slate-500">
               0
             </span>
           </div>
 
-          <p className="mt-3 text-sm font-semibold text-slate-500">
+          <p className="mt-3 text-sm font-semibold text-slate-500 dark:text-slate-400">
             No tickets available
           </p>
         </div>
@@ -675,17 +625,11 @@ const StatusDonutChart = ({
 
   return (
     <div className="flex w-full flex-col items-center">
-      {/* ======================================================
-          DONUT
-          ====================================================== */}
-
       <div className="relative h-44 w-44 shrink-0 sm:h-48 sm:w-48">
         <svg
           viewBox="0 0 200 200"
           className="h-full w-full -rotate-90"
         >
-          {/* Background */}
-
           <circle
             cx="100"
             cy="100"
@@ -694,8 +638,6 @@ const StatusDonutChart = ({
             stroke="#e2e8f0"
             strokeWidth="21"
           />
-
-          {/* Donut segments */}
 
           {data.map((item, index) => {
             const percentage = item.value / total;
@@ -738,30 +680,27 @@ const StatusDonutChart = ({
           })}
         </svg>
 
-        {/* Center */}
-
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-3xl font-black text-slate-900 sm:text-4xl">
+          <span
+            className="
+              text-3xl font-black text-slate-900
+              dark:text-white
+              sm:text-4xl
+            "
+          >
             {total}
           </span>
 
-          <span className="mt-1 text-xs font-medium text-slate-500">
+          <span className="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">
             Tickets
           </span>
         </div>
       </div>
 
-      {/* ======================================================
-          STATUS DETAILS
-          ====================================================== */}
-
-      <div className="mt-7 w-full border-t border-slate-100 pt-5">
+      <div className="mt-7 w-full border-t border-slate-100 pt-5 dark:border-slate-700">
         <div
           className="
-            grid
-            w-full
-            grid-cols-1
-            gap-2.5
+            grid w-full grid-cols-1 gap-2.5
             sm:grid-cols-2
           "
         >
@@ -774,29 +713,23 @@ const StatusDonutChart = ({
               <div
                 key={item.label}
                 className="
-                  flex
-                  min-h-[58px]
-                  w-full
-                  items-center
-                  justify-between
-                  rounded-xl
-                  border
-                  border-slate-100
-                  bg-slate-50
-                  px-3
-                  py-3
-                  transition-all
-                  duration-200
+                  flex min-h-[58px] w-full items-center
+                  justify-between rounded-xl border
+                  border-slate-100 bg-slate-50
+                  px-3 py-3
+                  transition-all duration-200
                   hover:-translate-y-0.5
                   hover:border-slate-200
                   hover:bg-white
                   hover:shadow-sm
+
+                  dark:border-slate-700
+                  dark:bg-slate-800
+
+                  dark:hover:border-slate-200
+                  dark:hover:bg-white
                 "
               >
-                {/* ==================================================
-                    LEFT - STATUS NAME
-                    ================================================== */}
-
                 <div className="flex min-w-0 items-center gap-2.5">
                   <span
                     className="h-2.5 w-2.5 shrink-0 rounded-full"
@@ -807,26 +740,40 @@ const StatusDonutChart = ({
 
                   <span
                     className="
-                      text-sm
-                      font-semibold
-                      leading-5
+                      text-sm font-semibold leading-5
                       text-slate-700
+                      dark:text-slate-200
+                      dark:hover:text-slate-900
                     "
                   >
                     {item.label}
                   </span>
                 </div>
 
-                {/* ==================================================
-                    RIGHT - COUNT + %
-                    ================================================== */}
-
                 <div className="ml-3 flex shrink-0 items-center gap-2">
-                  <span className="text-sm font-bold text-slate-900">
+                  <span
+                    className="
+                      text-sm font-bold text-slate-900
+                      dark:text-white
+                      group-hover:text-slate-900
+                    "
+                  >
                     {item.value}
                   </span>
 
-                  <span className="rounded-md bg-white px-1.5 py-0.5 text-[11px] font-semibold text-slate-500">
+                  <span
+                    className="
+                      rounded-md bg-white
+                      px-1.5 py-0.5
+                      text-[11px] font-semibold text-slate-500
+
+                      dark:bg-slate-700
+                      dark:text-slate-300
+
+                      dark:hover:bg-slate-100
+                      dark:hover:text-slate-900
+                    "
+                  >
                     {percentage}%
                   </span>
                 </div>
@@ -851,7 +798,7 @@ const CategoryBarChart = ({
   if (data.length === 0) {
     return (
       <div className="flex min-h-[225px] items-center justify-center">
-        <p className="text-sm font-medium text-slate-400">
+        <p className="text-sm font-medium text-slate-400 dark:text-slate-500">
           No category data available
         </p>
       </div>
@@ -872,7 +819,16 @@ const CategoryBarChart = ({
         return (
           <div
             key={item.label}
-            className="group rounded-xl px-2 py-2 transition-all duration-200 hover:bg-slate-50 hover:shadow-sm"
+            className="
+              category-chart-item
+              group rounded-xl px-2 py-2
+              transition-all duration-200
+
+              hover:bg-slate-50
+              hover:shadow-sm
+
+              dark:hover:bg-white
+            "
           >
             <div className="mb-1.5 flex items-center justify-between gap-3">
               <div className="flex min-w-0 items-center gap-2">
@@ -885,20 +841,59 @@ const CategoryBarChart = ({
 
                 <span
                   title={item.label}
-                  className="min-w-0 truncate text-[11px] font-semibold text-slate-600 transition-colors group-hover:text-slate-900 sm:text-xs"
+                  className="
+                    min-w-0 truncate
+                    text-[11px] font-semibold
+                    text-slate-600
+                    transition-colors
+
+                    group-hover:text-slate-900
+
+                    dark:text-slate-300
+                    dark:group-hover:text-slate-900
+
+                    sm:text-xs
+                  "
                 >
                   {item.label}
                 </span>
               </div>
 
-              <span className="shrink-0 rounded-md bg-slate-100 px-2 py-1 text-[10px] font-bold text-slate-600 transition-all duration-200 group-hover:bg-slate-900 group-hover:text-white">
+              <span
+                className="
+                  shrink-0 rounded-md
+                  bg-slate-100 px-2 py-1
+                  text-[10px] font-bold
+                  text-slate-600
+                  transition-all duration-200
+
+                  group-hover:bg-slate-900
+                  group-hover:text-white
+
+                  dark:bg-slate-700
+                  dark:text-slate-300
+
+                  dark:group-hover:bg-slate-100
+                  dark:group-hover:text-slate-900
+                "
+              >
                 {item.value}
               </span>
             </div>
 
-            <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
+            <div
+              className="
+                h-2.5 w-full overflow-hidden
+                rounded-full bg-slate-100
+                dark:bg-slate-700
+              "
+            >
               <div
-                className="h-full rounded-full transition-all duration-700 ease-out group-hover:brightness-110"
+                className="
+                  h-full rounded-full
+                  transition-all duration-700 ease-out
+                  group-hover:brightness-110
+                "
                 style={{
                   width: `${percentage}%`,
                   backgroundColor: item.color,
@@ -913,7 +908,7 @@ const CategoryBarChart = ({
 };
 
 /* ============================================================
-   PRIORITY PIE / DONUT
+   PRIORITY PIE
    ============================================================ */
 
 const PriorityPieChart = ({
@@ -930,11 +925,17 @@ const PriorityPieChart = ({
     return (
       <div className="flex min-h-[225px] items-center justify-center">
         <div className="text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-slate-100 text-slate-400">
+          <div
+            className="
+              mx-auto flex h-16 w-16 items-center justify-center
+              rounded-full bg-slate-100 text-slate-400
+              dark:bg-slate-800 dark:text-slate-500
+            "
+          >
             <PieChart size={25} />
           </div>
 
-          <p className="mt-3 text-sm font-semibold text-slate-500">
+          <p className="mt-3 text-sm font-semibold text-slate-500 dark:text-slate-400">
             No priority data
           </p>
         </div>
@@ -950,7 +951,8 @@ const PriorityPieChart = ({
       .slice(0, index)
       .reduce(
         (sum, currentItem) =>
-          sum + (currentItem.value / total) * 100,
+          sum +
+          (currentItem.value / total) * 100,
         0
       );
 
@@ -965,28 +967,42 @@ const PriorityPieChart = ({
 
   return (
     <div className="flex min-h-[225px] flex-col items-center justify-center gap-5 sm:flex-row">
-      {/* Pie */}
-
       <div
-        className="group relative h-40 w-40 shrink-0 rounded-full p-5 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg sm:h-44 sm:w-44"
+        className="
+          group relative h-40 w-40 shrink-0
+          rounded-full p-5 shadow-sm
+          transition-all duration-300
+          hover:scale-105 hover:shadow-lg
+          sm:h-44 sm:w-44
+        "
         style={{
           background: gradient,
         }}
       >
-        <div className="flex h-full w-full items-center justify-center rounded-full bg-white shadow-inner">
+        <div
+          className="
+            flex h-full w-full items-center justify-center
+            rounded-full bg-white shadow-inner
+            dark:bg-slate-900
+          "
+        >
           <div className="text-center">
-            <p className="text-3xl font-black text-slate-900">
+            <p className="text-3xl font-black text-slate-900 dark:text-white">
               {total}
             </p>
 
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+            <p
+              className="
+                text-[10px] font-semibold uppercase
+                tracking-wider text-slate-400
+                dark:text-slate-500
+              "
+            >
               Priority
             </p>
           </div>
         </div>
       </div>
-
-      {/* Legend */}
 
       <div className="grid w-full grid-cols-2 gap-2">
         {data.map((item) => {
@@ -997,7 +1013,17 @@ const PriorityPieChart = ({
           return (
             <div
               key={item.label}
-              className="group rounded-xl border border-transparent p-2.5 transition-all duration-200 hover:border-slate-200 hover:bg-slate-50"
+              className="
+                group rounded-xl
+                border border-transparent p-2.5
+                transition-all duration-200
+
+                hover:border-slate-200
+                hover:bg-slate-50
+
+                dark:hover:border-slate-200
+                dark:hover:bg-white
+              "
             >
               <div className="flex items-center gap-2">
                 <span
@@ -1007,17 +1033,41 @@ const PriorityPieChart = ({
                   }}
                 />
 
-                <span className="text-xs font-semibold text-slate-600 group-hover:text-slate-900">
+                <span
+                  className="
+                    text-xs font-semibold
+                    text-slate-600
+
+                    group-hover:text-slate-900
+
+                    dark:text-slate-300
+                    dark:group-hover:text-slate-900
+                  "
+                >
                   {item.label}
                 </span>
               </div>
 
               <div className="mt-1 flex items-baseline gap-1">
-                <span className="ml-4 text-sm font-black text-slate-900">
+                <span
+                  className="
+                    ml-4 text-sm font-black
+                    text-slate-900
+                    dark:text-white
+                    dark:group-hover:text-slate-900
+                  "
+                >
                   {item.value}
                 </span>
 
-                <span className="text-[10px] font-medium text-slate-400">
+                <span
+                  className="
+                    text-[10px] font-medium
+                    text-slate-400
+                    dark:text-slate-500
+                    dark:group-hover:text-slate-600
+                  "
+                >
                   ({percentage}%)
                 </span>
               </div>
@@ -1030,7 +1080,7 @@ const PriorityPieChart = ({
 };
 
 /* ============================================================
-   WEEKLY ACTIVITY / HISTOGRAM
+   WEEKLY ACTIVITY
    ============================================================ */
 
 const WeeklyActivityChart = ({
@@ -1061,19 +1111,38 @@ const WeeklyActivityChart = ({
         return (
           <div
             key={`${item.label}-${item.shortDate}`}
-            className="group flex h-[220px] min-w-0 flex-1 flex-col items-center justify-end"
+            className="
+              group flex h-[220px] min-w-0
+              flex-1 flex-col items-center justify-end
+            "
           >
-            {/* Value */}
-
-            <span className="mb-2 rounded-md bg-slate-900 px-1.5 py-1 text-[9px] font-bold text-white opacity-0 shadow-lg transition-all duration-200 group-hover:-translate-y-1 group-hover:opacity-100">
+            <span
+              className="
+                mb-2 rounded-md
+                bg-slate-900
+                px-1.5 py-1
+                text-[9px] font-bold text-white
+                opacity-0 shadow-lg
+                transition-all duration-200
+                group-hover:-translate-y-1
+                group-hover:opacity-100
+                dark:bg-slate-700
+              "
+            >
               {item.value}
             </span>
 
-            {/* Bar */}
-
             <div className="flex h-[170px] w-full items-end justify-center">
               <div
-                className="relative w-full max-w-12 overflow-hidden rounded-t-xl bg-gradient-to-t from-blue-600 to-cyan-400 transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:shadow-lg"
+                className="
+                  relative w-full max-w-12
+                  overflow-hidden rounded-t-xl
+                  bg-gradient-to-t
+                  from-blue-600 to-cyan-400
+                  transition-all duration-500 ease-out
+                  group-hover:-translate-y-1
+                  group-hover:shadow-lg
+                "
                 style={{
                   height: `${height}%`,
                   minHeight: "8px",
@@ -1083,13 +1152,18 @@ const WeeklyActivityChart = ({
               </div>
             </div>
 
-            {/* Label */}
-
-            <p className="mt-2 text-[10px] font-bold text-slate-500 sm:text-xs">
+            <p
+              className="
+                mt-2 text-[10px] font-bold
+                text-slate-500
+                dark:text-slate-400
+                sm:text-xs
+              "
+            >
               {item.label}
             </p>
 
-            <p className="mt-0.5 text-[9px] text-slate-400">
+            <p className="mt-0.5 text-[9px] text-slate-400 dark:text-slate-500">
               {item.shortDate}
             </p>
           </div>
@@ -1122,28 +1196,28 @@ const PerformanceOverview = ({
       value: total,
       icon: CircleDot,
       iconClass:
-        "bg-blue-50 text-blue-600",
+        "bg-blue-80 text-blue-600 dark:bg-blue-950 dark:text-blue-400",
     },
     {
       label: "Resolved / Closed",
       value: resolved,
       icon: CheckCircle2,
       iconClass:
-        "bg-emerald-50 text-emerald-600",
+        "bg-emerald-50 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400",
     },
     {
       label: "Critical",
       value: critical,
       icon: AlertTriangle,
       iconClass:
-        "bg-red-50 text-red-600",
+        "bg-red-50 text-red-600 dark:bg-red-950 dark:text-red-400",
     },
     {
       label: "Resolution Rate",
       value: `${resolutionRate}%`,
       icon: TrendingUp,
       iconClass:
-        "bg-purple-50 text-purple-600",
+        "bg-purple-50 text-purple-600 dark:bg-purple-950 dark:text-purple-400",
     },
   ];
 
@@ -1155,20 +1229,67 @@ const PerformanceOverview = ({
         return (
           <div
             key={metric.label}
-            className="group flex items-center gap-3 rounded-xl border border-slate-100 bg-slate-50/60 p-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-200 hover:bg-white hover:shadow-md"
-          >
-            <div
-              className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${metric.iconClass} transition-transform duration-200 group-hover:scale-105`}
-            >
-              <Icon size={18} />
-            </div>
+            className="
+              group flex items-center gap-3
+              rounded-xl
+              border border-slate-100
+              bg-slate-50/60
+              p-3
+              transition-all duration-200
+              hover:-translate-y-0.5
+              hover:border-slate-200
+              hover:bg-white
+              hover:shadow-md
 
+              dark:border-slate-700
+              dark:bg-slate-800/60
+
+              /* IMPORTANT:
+                 Dark-mode hover becomes WHITE
+                 so all text stays visible. */
+              dark:hover:border-slate-200
+              dark:hover:bg-white
+            "
+          >
+           <div
+  className={`
+    flex h-10 w-10 shrink-0
+    items-center justify-center
+    rounded-xl
+    ${metric.iconClass}
+    transition-transform duration-200
+    group-hover:scale-105
+  `}
+>
+  <Icon
+    size={18}
+    className="text-black dark:text-black"
+  />
+</div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[10px] font-bold uppercase tracking-wider text-slate-400">
+              <p
+                className="
+                  truncate
+                  text-[10px] font-bold uppercase
+                  tracking-wider
+                  text-slate-400
+
+                  dark:text-slate-500
+                  dark:group-hover:text-slate-600
+                "
+              >
                 {metric.label}
               </p>
 
-              <p className="mt-0.5 text-xl font-black text-slate-900">
+              <p
+                className="
+                  mt-0.5 text-xl font-black
+                  text-slate-900
+
+                  dark:text-white
+                  dark:group-hover:text-slate-900
+                "
+              >
                 {metric.value}
               </p>
             </div>
@@ -1176,29 +1297,69 @@ const PerformanceOverview = ({
         );
       })}
 
-      {/* Health indicator */}
+      {/* Resolution Performance */}
+      <div
+        className="
+          mt-4 rounded-xl
+          border border-slate-200
+          bg-white
+          p-3 shadow-sm
 
-      <div className="mt-4 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+          dark:border-slate-700
+          dark:bg-slate-900
+
+          dark:hover:border-slate-200
+          dark:hover:bg-white
+        "
+      >
         <div className="mb-2 flex items-center justify-between">
-          <span className="text-xs font-bold text-slate-600">
+          <span
+            className="
+              text-xs font-bold
+              text-slate-600
+
+              dark:text-slate-300
+              dark:hover:text-slate-900
+            "
+          >
             Resolution Performance
           </span>
 
-          <span className="text-xs font-black text-slate-900">
+          <span
+            className="
+              text-xs font-black
+              text-slate-900
+
+              dark:text-white
+              dark:hover:text-slate-900
+            "
+          >
             {resolutionRate}%
           </span>
         </div>
 
-        <div className="h-2.5 overflow-hidden rounded-full bg-slate-100">
+        <div className="h-2.5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-700">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500 transition-all duration-700"
+            className="
+              h-full rounded-full
+              bg-gradient-to-r
+              from-blue-500 via-cyan-500 to-emerald-500
+              transition-all duration-700
+            "
             style={{
               width: `${resolutionRate}%`,
             }}
           />
         </div>
 
-        <div className="mt-2 flex items-center justify-between text-[10px] text-slate-400">
+        <div
+          className="
+            mt-2 flex items-center justify-between
+            text-[10px]
+            text-slate-400
+            dark:text-slate-500
+          "
+        >
           <span>0%</span>
 
           <span className="flex items-center gap-1">

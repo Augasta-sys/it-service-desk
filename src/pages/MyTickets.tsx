@@ -97,7 +97,8 @@ const StatCard = ({
               ${iconClassName}
             `}
           >
-            <Icon size={19} />
+            <Icon size={19}
+            className="!text-black dark:!text-black" />
           </div>
 
           <span

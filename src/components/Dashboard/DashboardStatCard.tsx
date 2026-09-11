@@ -75,6 +75,7 @@ const DashboardStatCard = ({
       type="button"
       onClick={onClick}
       className="
+        dashboard-stat-card
         group
         relative
         w-full
@@ -125,22 +126,54 @@ const DashboardStatCard = ({
             group-hover:scale-105
           `}
         >
-          <Icon size={18} strokeWidth={2.2} />
+         <Icon
+  size={18}
+  className="!text-black dark:!text-black"
+/>
         </div>
 
         {/* Content */}
         <div className="min-w-0 flex-1">
-          <p className="truncate text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+          <p
+            className="
+              dashboard-stat-title
+              truncate
+              text-[11px]
+              font-semibold
+              uppercase
+              tracking-wide
+              text-slate-400
+            "
+          >
             {title}
           </p>
 
           <div className="mt-0.5 flex items-baseline gap-2">
-            <span className="text-xl font-black leading-none text-slate-900 sm:text-2xl">
+            <span
+              className="
+                dashboard-stat-value
+                text-xl
+                font-black
+                leading-none
+                text-slate-900
+                sm:text-2xl
+              "
+            >
               {value}
             </span>
 
             {description && (
-              <span className="hidden truncate text-[10px] font-medium text-slate-400 sm:inline">
+              <span
+                className="
+                  dashboard-stat-description
+                  hidden
+                  truncate
+                  text-[10px]
+                  font-medium
+                  text-slate-400
+                  sm:inline
+                "
+              >
                 {description}
               </span>
             )}
